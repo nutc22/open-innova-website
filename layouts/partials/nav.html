@@ -1,0 +1,44 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="container navbar-container">
+    <!-- Logo -->
+    <a href="{{ .Site.BaseURL }}" class="navbar-logo" aria-label="{{ .Site.Title }} Home">
+      <img src="{{ .Site.BaseURL }}images/logo.svg" alt="{{ .Site.Title }}" width="40" height="40">
+      <span class="logo-text">{{ .Site.Title }}</span>
+    </a>
+
+    <!-- Main Menu -->
+    <ul class="navbar-menu" role="menubar">
+      {{- range .Site.Menus.main }}
+      {{- $isCurrent := (or (.URL | strings.HasPrefix $.Permalink) (eq .URL $.Page.Permalink)) }}
+      <li role="none">
+        <a
+          href="{{ .URL }}"
+          class="navbar-link{{ if $isCurrent }} active{{ end }}"
+          {{- if $isCurrent }} aria-current="page"{{ end }}
+        >
+          {{ .Name }}
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+
+    <!-- Language Switcher -->
+    {{- if .IsTranslated }}
+    <div class="navbar-languages">
+      <div class="lang-switcher" role="group" aria-label="Language Selection">
+        {{- range .AllTranslations }}
+        {{- $isCurrentLang := eq .Language.Lang $.Page.Language.Lang }}
+        <a
+          href="{{ .Permalink }}"
+          class="lang-link{{ if $isCurrentLang }} active{{ end }}"
+          {{- if $isCurrentLang }} aria-current="true"{{ end }}
+          lang="{{ .Language.Lang }}"
+        >
+          {{ .Language.LanguageName | upper }}
+        </a>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+  </div>
+</nav>

@@ -1,0 +1,23 @@
+{{- define "main" -}}
+<article class="page-content">
+  <div class="container">
+    {{- with .Title }}
+    <h1 class="page-title">{{ . }}</h1>
+    {{- end }}
+
+    {{- if .Params.subtitle }}
+    <p class="page-subtitle">{{ .Params.subtitle }}</p>
+    {{- end }}
+
+    <div class="page-body">
+      {{- .Content }}
+    </div>
+
+    {{- if .Params.cta_text }}
+    <div class="page-cta">
+      <a href="{{ .Params.cta_url }}" class="btn btn-primary">{{ .Params.cta_text }}</a>
+    </div>
+    {{- end }}
+  </div>
+</article>
+{{- end -}}

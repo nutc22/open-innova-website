@@ -1,0 +1,60 @@
+{{- $company := .Site.Data.company -}}
+
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-section">
+      <h3>{{ $company.name }}</h3>
+      <p>{{ $company.tagline }}</p>
+      <div class="footer-contact">
+        <p><strong>Email:</strong> <a href="mailto:{{ $company.contact.email.info }}">{{ $company.contact.email.info }}</a></p>
+        <p><strong>Address:</strong> {{ $company.registeredOffice.street }}, {{ $company.registeredOffice.postalCode }} {{ $company.registeredOffice.city }} ({{ $company.registeredOffice.province }}) - {{ $company.registeredOffice.country }}</p>
+      </div>
+    </div>
+
+    {{- /* Quick Links */ -}}
+    <div class="footer-section">
+      <h4>{{ if eq .Language.Lang "it" }}Link Veloci{{ else }}Quick Links{{ end }}</h4>
+      <ul>
+        {{- range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+
+    {{- /* Social Media */ -}}
+    {{- if $company.socialMedia }}
+    <div class="footer-section">
+      <h4>{{ if eq .Language.Lang "it" }}Seguici{{ else }}Follow Us{{ end }}</h4>
+      <ul class="social-links">
+        {{- with $company.socialMedia.linkedin }}
+        <li><a href="{{ . }}" rel="external nofollow" aria-label="LinkedIn">LinkedIn</a></li>
+        {{- end }}
+        {{- with $company.socialMedia.github }}
+        <li><a href="{{ . }}" rel="external nofollow" aria-label="GitHub">GitHub</a></li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- /* Legal */ -}}
+    <div class="footer-section">
+      <h4>{{ if eq .Language.Lang "it" }}Legale{{ else }}Legal{{ end }}</h4>
+      <ul>
+        <li><a href="{{ .Site.BaseURL }}{{ if eq .Language.Lang "en" }}en/{{ end }}privacy/">{{ if eq .Language.Lang "it" }}Privacy{{ else }}Privacy Policy{{ end }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  {{- /* Footer Bottom */ -}}
+  <div class="footer-bottom">
+    <p class="footer-copyright">
+      &copy; {{ now.Format "2006" }} {{ $company.name }}. {{ if eq .Language.Lang "it" }}Tutti i diritti riservati.{{ else }}All rights reserved.{{ end }}
+    </p>
+    {{- if $company.vatId }}
+    <p class="footer-legal-info">
+      {{ if eq .Language.Lang "it" }}Partita IVA: <code>{{ $company.vatId }}</code>{{ else }}VAT ID: <code>{{ $company.vatId }}</code>{{ end }}
+      {{- if $company.rea }} | REA: <code>{{ $company.rea }}</code>{{ end }}
+    </p>
+    {{- end }}
+  </div>
+</footer>

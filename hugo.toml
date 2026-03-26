@@ -1,0 +1,90 @@
+baseURL = "https://openinnova.it"
+languageCode = "it"
+title = "Open Innova"
+
+# Default language (Italian)
+defaultContentLanguage = "it"
+defaultContentLanguageInSubdir = false
+
+# Enable emoji support
+enableEmoji = true
+
+# Pluralize titles
+pluralizeListTitles = false
+
+# Taxonomies
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+# Output formats
+[outputs]
+home = ["HTML", "RSS"]
+page = ["HTML"]
+section = ["HTML", "RSS"]
+
+# Multilingual configuration
+[languages]
+[languages.it]
+languageName = "Italiano"
+languageCode = "it"
+weight = 1
+contentDir = "content/it"
+
+[[languages.it.menu.main]]
+name = "Chi siamo"
+url = "/chi-siamo/"
+weight = 1
+
+[[languages.it.menu.main]]
+name = "Prodotti"
+url = "/prodotti/"
+weight = 2
+
+[[languages.it.menu.main]]
+name = "Consulenza"
+url = "/consulenza/"
+weight = 3
+
+[[languages.it.menu.main]]
+name = "Contatti"
+url = "/contatti/"
+weight = 4
+
+[languages.en]
+languageName = "English"
+languageCode = "en"
+weight = 2
+contentDir = "content/en"
+
+[[languages.en.menu.main]]
+name = "About"
+url = "/en/about/"
+weight = 1
+
+[[languages.en.menu.main]]
+name = "Products"
+url = "/en/products/"
+weight = 2
+
+[[languages.en.menu.main]]
+name = "Consulting"
+url = "/en/consulting/"
+weight = 3
+
+[[languages.en.menu.main]]
+name = "Contact"
+url = "/en/contact/"
+weight = 4
+
+# Build settings
+[build]
+writeStats = true
+
+# Markup settings
+[markup]
+[markup.goldmark]
+hardWraps = false
+
+[markup.goldmark.renderer]
+unsafe = true

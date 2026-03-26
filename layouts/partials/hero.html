@@ -1,0 +1,21 @@
+{{- if .Params.hero }}
+<section class="hero" role="region" aria-label="Hero Section">
+  <div class="hero-container">
+    {{- with .Params.hero.title }}
+    <h1 class="hero-title">{{ . }}</h1>
+    {{- end }}
+
+    {{- with .Params.hero.subtitle }}
+    <p class="hero-subtitle">{{ . }}</p>
+    {{- end }}
+
+    {{- if .Params.hero.cta }}
+    <div class="hero-cta">
+      {{- range .Params.hero.cta }}
+      <a href="{{ .url }}" class="btn {{ .style | default "btn-primary" }}">{{ .text }}</a>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{- end }}

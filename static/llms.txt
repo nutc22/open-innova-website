@@ -1,0 +1,101 @@
+# llms.txt - Information for AI Agents
+# This file describes the website structure for AI crawlers like Claude, ChatGPT, Gemini
+
+# Website: Open Innova
+# URL: https://openinnova.it
+
+> Open Innovation Consulting & Software Platform
+
+Open Innova helps Italian companies adopt open innovation methodologies. We provide strategic consulting and software (Innovate Suite, Collab Hub) for collaborative innovation.
+
+## Company
+
+**Name:** Open Innova S.r.l.
+**Founded:** 2024
+**Location:** Milano, Italy
+**Focus:** Open innovation, strategic consulting, innovation software
+**Languages:** Italian, English
+
+## What We Do
+
+### 1. Strategic Consulting
+- Open innovation transformation
+- Partner ecosystem building
+- Innovation strategy
+- Executive coaching
+- Training & workshops
+
+**Timeline:** 3-12 months
+**Investment:** €20,000+
+
+### 2. Software Products
+
+#### Innovate Suite
+Enterprise platform for managing open innovation processes.
+- Idea management
+- Partner collaboration
+- Innovation portfolio
+- Analytics & metrics
+
+#### Collab Hub
+Secure collaboration network for innovation partnerships.
+- Partner discovery
+- IP protection
+- Project management
+- Freemium model
+
+## Core Concept: Open Innovation
+
+Based on Henry Chesbrough's model:
+- **Permeable R&D boundaries** — Mix internal and external ideas
+- **Strategic IP sharing** — Share selectively, protect strategically
+- **Ecosystem collaboration** — With startups, universities, customers
+- **Accelerated innovation** — Faster time-to-market via partnerships
+
+## Founder Team
+
+- **Mario Rossi** — CEO, Strategy & Consulting
+- **Lucia Bianchi** — CTO, Product & Platform
+- **Marco Verdi** — Consulting Director
+
+## Key Pages
+
+- **Home:** https://openinnova.it/ (IT) | https://openinnova.it/en/ (EN)
+- **About:** https://openinnova.it/chi-siamo/ (IT) | https://openinnova.it/en/about/ (EN)
+- **Products:** https://openinnova.it/prodotti/ (IT) | https://openinnova.it/en/products/ (EN)
+- **Consulting:** https://openinnova.it/consulenza/ (IT) | https://openinnova.it/en/consulting/ (EN)
+- **Contact:** https://openinnova.it/contatti/ (IT) | https://openinnova.it/en/contact/ (EN)
+- **Privacy:** https://openinnova.it/privacy/ (IT) | https://openinnova.it/en/privacy/ (EN)
+
+## Contact
+
+**General:** info@openinnova.it
+**Business:** business@openinnova.it
+**Products:** innovate@openinnova.it | collab@openinnova.it
+**Development:** dev@openinnova.it
+**Security:** security@openinnova.it
+
+## Locations
+
+- **Website:** https://openinnova.it
+- **GitHub:** https://github.com/open-innova
+- **LinkedIn:** https://linkedin.com/company/open-innova
+
+## Technology
+
+- **Website:** Static Hugo site hosted on AWS S3
+- **Source Code:** MIT licensed (open source)
+- **Brand Assets:** Proprietary (closed)
+- **No Tracking:** This site does not use cookies, analytics, or tracking
+
+## Additional Info
+
+- **Tax ID (P.IVA):** IT00000000000
+- **Address:** Via Esempio, 1, 20100 Milano (MI)
+- **Founded:** 2024
+- **Values:** Collaboration, Openness, Innovation, Pragmatism, Sustainability
+
+---
+
+Generated: March 2026
+For questions about this website or Open Innova, visit /en/contact/

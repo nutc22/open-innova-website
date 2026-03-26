@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body>
+  <header role="banner">
+    {{- partial "nav.html" . -}}
+  </header>
+
+  <main id="main-content" role="main">
+    {{- block "main" . }}{{- end }}
+  </main>
+
+  <footer role="contentinfo">
+    {{- partial "footer.html" . -}}
+  </footer>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {{- $company := .Site.Data.company -}}
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ $company.name }}",
+    "url": "{{ .Site.BaseURL }}",
+    "logo": "{{ .Site.BaseURL }}images/logo.svg",
+    "description": "{{ $company.description }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ $company.registeredOffice.street }}",
+      "addressLocality": "{{ $company.registeredOffice.city }}",
+      "addressRegion": "{{ $company.registeredOffice.province }}",
+      "postalCode": "{{ $company.registeredOffice.postalCode }}",
+      "addressCountry": "{{ $company.registeredOffice.countryCode }}"
+    },
+    "sameAs": [
+      "{{ $company.socialMedia.linkedin }}",
+      "{{ $company.socialMedia.github }}"
+    ]
+  }
+  </script>
+</body>
+</html>

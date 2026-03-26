@@ -1,0 +1,61 @@
+# === PROPRIETARY DATA & ASSETS — Copyright Open Innova ===
+# These directories contain proprietary content, branding, and company data.
+assets/
+content/
+data/company.json
+
+# === PRIVATE ENVIRONMENT & CREDENTIALS ===
+# Never commit credentials, API keys, or sensitive environment-specific config.
+.env
+.env.local
+.env.*.local
+.env.production.local
+
+# === BUILD OUTPUT ===
+# Astro generates static HTML here.
+dist/
+.astro/
+
+# === NODE.JS ===
+# Dependencies and package lock files.
+node_modules/
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+*.pnpm-debug.log*
+
+# === OPERATING SYSTEM ===
+# OS-specific files should not be versioned.
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# === EDITOR & IDE ===
+# Editor config and workspace state.
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# === AWS ===
+# Never store AWS credentials or temporary exports.
+.aws/
+aws-exports.js
+credentials
+aws_credentials
+
+# === TEMPORARY & CACHE ===
+.cache/
+.turbo/
+*.log
+.pnpm-store/
+.yarn/cache
+
+# === DEVELOPMENT ===
+.env.development.local
+.env.test.local

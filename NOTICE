@@ -1,0 +1,67 @@
+# Open Innova Website
+
+Questo repository contiene il codice sorgente del sito ufficiale di Open Innova S.r.l.
+
+---
+
+## Licensing & Copyright
+
+### Source Code (src/)
+The source code in `src/` directory is released under the **MIT License** (see LICENSE file).
+
+**Copyright © 2026 nutc22**
+
+You are free to:
+- Use this code for any purpose
+- Modify it
+- Distribute it
+- Use it commercially
+
+### Brand Assets (assets/) & Marketing Content (content/)
+Files in `assets/` and `content/` directories are **proprietary to Open Innova S.r.l.**
+and are NOT included in this repository.
+
+These directories are gitignored (see .gitignore). They are protected by copyright law.
+You are NOT permitted to:
+- Use, reproduce, or distribute these assets
+- Use the Open Innova brand identity
+- Clone this repo and use company-specific content as-is
+
+For licensing inquiries, contact: info@openinnova.it
+
+---
+
+## Third-Party Attributions
+
+This project uses the following open-source software:
+
+**Hugo** — Apache License 2.0
+- https://gohugo.io
+- Copyright (c) 2013 Steve Francia and Hugo contributors
+- Used for static site generation with zero-dependency output
+
+Additional dependencies are listed in `package.json` with their respective licenses.
+Run `npm list --all` to view complete dependency tree.
+
+---
+
+## Project Structure
+
+- `src/` → MIT license (open source, reusable)
+- `assets/` → Proprietary (gitignored, not included)
+- `content/` → Proprietary (gitignored, not included)
+- `data/company.json` → Private configuration (gitignored, not included)
+- `data/company.example.json` → Public template (committed, safe to customize)
+
+---
+
+## Attribution When Reusing
+
+If you fork this project and reuse the `src/` code, we ask (but do not require) that you:
+- Maintain the MIT license
+- Credit Open Innova and Astro in your project's NOTICE or README
+
+---
+
+**PARTITA IVA:** See data/company.example.json for reference structure.
+**Copyright © 2026 Open Innova S.r.l.** — All rights reserved (brand, assets, content).

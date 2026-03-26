@@ -1,0 +1,125 @@
+{
+  "_comment": "TEMPLATE FILE: Copy this to data/company.json and fill in real values. data/company.json is gitignored.",
+  "name": "Open Innova S.r.l.",
+  "tagline": "Open Innovation for Italian Businesses",
+  "description": "We help Italian companies adopt open innovation methodologies, combining software products with strategic consulting and coaching.",
+  "founded": 2024,
+  "vatId": "IT00000000000",
+  "fiscalCode": "00000000000",
+  "rea": "MI-0000000",
+  "legalForm": "S.r.l.",
+  "registeredOffice": {
+    "street": "Via Esempio, 1",
+    "city": "Milano",
+    "province": "MI",
+    "postalCode": "20100",
+    "country": "Italy",
+    "countryCode": "IT"
+  },
+  "contact": {
+    "email": {
+      "info": "info@openinnova.it",
+      "dev": "dev@openinnova.it",
+      "security": "security@openinnova.it",
+      "conduct": "conduct@openinnova.it",
+      "business": "business@openinnova.it"
+    },
+    "phone": "+39 02 XXXX XXXX",
+    "address": "Via Esempio, 1, 20100 Milano (MI), Italy"
+  },
+  "socialMedia": {
+    "linkedin": "https://linkedin.com/company/open-innova",
+    "github": "https://github.com/open-innova",
+    "twitter": "https://twitter.com/openinnova"
+  },
+  "founders": [
+    {
+      "id": "mario-rossi",
+      "name": "Mario Rossi",
+      "role": "CEO & Co-founder",
+      "bio": "Mario brings 15+ years of experience in innovation management and digital transformation. He leads Open Innova's strategic vision.",
+      "linkedin": "https://linkedin.com/in/mario-rossi",
+      "email": "mario@openinnova.it"
+    },
+    {
+      "id": "lucia-bianchi",
+      "name": "Lucia Bianchi",
+      "role": "CTO & Co-founder",
+      "bio": "Lucia is a software architect specializing in innovation platforms. She oversees all technical projects at Open Innova.",
+      "linkedin": "https://linkedin.com/in/lucia-bianchi",
+      "email": "lucia@openinnova.it"
+    }
+  ],
+  "team": [
+    {
+      "id": "marco-verdi",
+      "name": "Marco Verdi",
+      "role": "Consulting Director",
+      "bio": "Marco designs and delivers open innovation transformation programs.",
+      "email": "marco@openinnova.it"
+    }
+  ],
+  "products": [
+    {
+      "id": "innovate-suite",
+      "name": "Innovate Suite",
+      "tagline": "Open Innovation Management Platform",
+      "category": "software",
+      "status": "active",
+      "launchDate": "2024-06-15",
+      "description": "Enterprise platform for managing open innovation processes: idea collection, collaboration with external partners, innovation portfolio management."
+    },
+    {
+      "id": "collab-hub",
+      "name": "Collab Hub",
+      "tagline": "Partner Collaboration Network",
+      "category": "software",
+      "status": "active",
+      "launchDate": "2024-08-01",
+      "description": "Secure platform for coordinating with startups, universities, and innovation partners."
+    }
+  ],
+  "services": [
+    {
+      "id": "innovation-consulting",
+      "name": "Innovation Consulting",
+      "description": "Strategic consulting to help organizations adopt open innovation models.",
+      "duration": "3-12 months"
+    },
+    {
+      "id": "coaching",
+      "name": "Executive Coaching",
+      "description": "One-on-one coaching for innovation leaders and entrepreneurs.",
+      "duration": "Ongoing"
+    },
+    {
+      "id": "training",
+      "name": "Innovation Training",
+      "description": "Workshops and seminars on open innovation frameworks and best practices.",
+      "duration": "1-5 days"
+    }
+  ],
+  "certifications": [
+    "ISO 9001:2015",
+    "ISO 27001:2022"
+  ],
+  "openInnovation": {
+    "mission": "We believe in the power of permeable boundaries. By combining internal expertise with external innovation, we help companies accelerate their digital transformation and market success.",
+    "approach": "Our methodology is based on Henry Chesbrough's Open Innovation model: systematic integration of external ideas and paths to market.",
+    "values": [
+      "Collaboration",
+      "Transparency",
+      "Innovation",
+      "Trust",
+      "Sustainability"
+    ]
+  },
+  "brand": {
+    "primaryColor": "#0066cc",
+    "secondaryColor": "#00aa44",
+    "accentColor": "#ff9900"
+  },
+  "copyright": "© 2026 Open Innova S.r.l. All rights reserved.",
+  "website": "https://openinnova.it",
+  "languages": ["it", "en"]
+}

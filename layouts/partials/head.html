@@ -1,0 +1,63 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0066cc">
+
+{{- /* Page Title & Meta */ -}}
+<title>{{ .Title }} — {{ .Site.Title }}</title>
+<meta name="description" content="{{ .Summary | plainify | truncate 160 }}">
+
+{{- /* Canonical URL */ -}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- /* Language Alternates (hreflang) */ -}}
+{{- if .IsTranslated }}
+  {{- range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+  {{- end }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+{{- end }}
+
+{{- /* Open Graph Tags */ -}}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Summary | plainify | truncate 160 }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+{{- with .Params.image }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{- else }}
+<meta property="og:image" content="{{ .Site.BaseURL }}images/og-image.jpg">
+{{- end }}
+
+{{- /* Twitter Card */ -}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ .Summary | plainify | truncate 160 }}">
+
+{{- /* Robots & Crawlers */ -}}
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+
+{{- /* Sitemap */ -}}
+<link rel="sitemap" type="application/xml" href="{{ .Site.BaseURL }}sitemap.xml">
+
+{{- /* RSS Feed */ -}}
+{{- if or (eq .Kind "home") (eq .Kind "section") }}
+<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}index.xml">
+{{- end }}
+
+{{- /* Stylesheets */ -}}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}style.css">
+
+{{- /* Favicon */ -}}
+<link rel="icon" type="image/svg+xml" href="{{ .Site.BaseURL }}favicon.svg">
+<link rel="icon" type="image/png" href="{{ .Site.BaseURL }}favicon.png">
+<link rel="apple-touch-icon" href="{{ .Site.BaseURL }}apple-touch-icon.png">
+
+{{- /* Security & Compliance Headers (if served properly) */ -}}
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+
+{{- /* AI Agent / LLM Support */ -}}
+<link rel="alternate" type="text/plain" href="{{ .Site.BaseURL }}llms.txt" title="For AI Agents">

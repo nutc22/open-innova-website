@@ -1,0 +1,12 @@
+{{- define "main" -}}
+<!-- Hero Section -->
+{{- partial "hero.html" . -}}
+
+<!-- Main Content -->
+<section class="content-section">
+  <div class="container">
+    {{- .Content }}
+  </div>
+</section>
+
+{{- end -}}

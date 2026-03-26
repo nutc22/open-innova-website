@@ -1,0 +1,18 @@
+# Robots.txt for Open Innova Website
+# Allow all crawlers, including AI agents
+
+User-agent: *
+Allow: /
+
+# Allow specific AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemap
+Sitemap: https://openinnova.it/sitemap.xml
