@@ -83,8 +83,11 @@
       "addressCountry": "{{ $company.registeredOffice.countryCode }}"
     },
     "sameAs": [
-      "{{ $company.socialMedia.linkedin }}",
-      "{{ $company.socialMedia.github }}"
+      {{- $links := slice -}}
+      {{- with $company.socialMedia.linkedin }}{{ $links = $links | append . }}{{ end -}}
+      {{- with $company.socialMedia.github }}{{ $links = $links | append . }}{{ end -}}
+      {{- range $i, $url := $links }}{{ if $i }},{{ end }}
+      "{{ $url }}"{{ end }}
     ]
   }
   </script>
