@@ -576,6 +576,91 @@ header {
 }
 
 /* ===========================
+   Tables inside page body
+   =========================== */
+
+.page-body .table-wrapper {
+  overflow-x: auto;
+  margin: var(--space-xl) 0;
+}
+
+.page-body table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--font-size-base);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: var(--space-xl) 0;
+}
+
+.page-body thead {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.page-body thead th {
+  padding: var(--space-md) var(--space-lg);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.page-body thead th + th {
+  text-align: right;
+}
+
+.page-body tbody td {
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  vertical-align: middle;
+  color: var(--color-text);
+}
+
+.page-body tbody td + td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+}
+
+.page-body tbody tr:nth-child(even) td {
+  background-color: var(--color-surface-light);
+}
+
+.page-body tbody tr:hover td {
+  background-color: rgba(76, 163, 127, 0.08);
+}
+
+/* Highlight a row when both cells are wrapped in <strong> (markdown **bold**) */
+.page-body tbody tr:has(td:first-child strong):has(td:last-child strong) td {
+  background-color: rgba(45, 122, 95, 0.12);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  border-top-color: var(--color-secondary);
+  border-bottom-color: var(--color-secondary);
+}
+
+.page-body tbody tr:has(td:first-child strong):has(td:last-child strong) td:first-child {
+  border-left: 4px solid var(--color-secondary);
+  padding-left: calc(var(--space-lg) - 4px);
+}
+
+@media (max-width: 600px) {
+  .page-body thead th,
+  .page-body tbody td {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ===========================
    Contact form
    =========================== */
 
