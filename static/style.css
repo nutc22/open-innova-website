@@ -307,20 +307,20 @@ header {
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-.navbar-logo img {
-  height: 40px;
-  width: auto;
-}
-
-.logo-text {
-  font-size: var(--font-size-lg);
   color: var(--color-heading);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--timing-function);
+}
+
+.navbar-logo:hover,
+.navbar-logo:focus {
+  opacity: 0.85;
+}
+
+.navbar-logo svg {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 
 .navbar-menu {
@@ -751,7 +751,7 @@ header {
 .contact-form {
   display: grid;
   gap: var(--space-lg);
-  max-width: 560px;
+  width: 100%;
   margin: var(--space-xl) 0;
   padding: var(--space-2xl);
   background-color: var(--color-surface-light);

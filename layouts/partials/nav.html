@@ -2,8 +2,7 @@
   <div class="container navbar-container">
     <!-- Logo -->
     <a href="{{ .Site.BaseURL }}" class="navbar-logo" aria-label="{{ .Site.Title }} Home">
-      <img src="{{ .Site.BaseURL }}images/logo.svg" alt="{{ .Site.Title }}" width="40" height="40">
-      <span class="logo-text">{{ .Site.Title }}</span>
+      {{ readFile "static/images/logo.svg" | safeHTML }}
     </a>
 
     <!-- Main Menu -->
