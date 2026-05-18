@@ -39,5 +39,61 @@
       </div>
     </div>
     {{- end }}
+
+    <!-- Mobile hamburger toggle (visible below 900px via CSS) -->
+    <button type="button" class="nav-toggle" data-open-nav-menu aria-label="{{ if eq .Language.Lang "it" }}Apri menu{{ else }}Open menu{{ end }}" aria-controls="nav-menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="4" y1="7" x2="20" y2="7"/>
+        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
   </div>
+
+  <!-- Mobile full-screen menu (opened by hamburger) -->
+  <dialog id="nav-menu" class="nav-menu" aria-label="{{ if eq .Language.Lang "it" }}Menu di navigazione{{ else }}Navigation menu{{ end }}">
+    <div class="nav-menu__header">
+      <a href="{{ .Site.BaseURL }}" class="nav-menu__logo" aria-label="{{ .Site.Title }} Home" data-close-nav-menu>
+        {{ readFile "static/images/logo.svg" | safeHTML }}
+      </a>
+      <button type="button" class="nav-menu__close" aria-label="{{ if eq .Language.Lang "it" }}Chiudi menu{{ else }}Close menu{{ end }}" data-close-nav-menu>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/>
+          <line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="nav-menu__list" role="menu">
+      {{- range .Site.Menus.main }}
+      {{- $isCurrent := eq .URL $.RelPermalink }}
+      <li role="none">
+        <a
+          href="{{ .URL }}"
+          class="nav-menu__link{{ if $isCurrent }} active{{ end }}"
+          {{- if $isCurrent }} aria-current="page"{{ end }}
+          data-close-nav-menu
+        >
+          {{ .Name }}
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+
+    {{- if .IsTranslated }}
+    <div class="nav-menu__lang" role="group" aria-label="{{ if eq .Language.Lang "it" }}Selezione lingua{{ else }}Language selection{{ end }}">
+      {{- range .AllTranslations }}
+      {{- $isCurrentLang := eq .Language.Lang $.Page.Language.Lang }}
+      <a
+        href="{{ .Permalink }}"
+        class="nav-menu__lang-link{{ if $isCurrentLang }} active{{ end }}"
+        {{- if $isCurrentLang }} aria-current="true"{{ end }}
+        lang="{{ .Language.Lang }}"
+      >
+        {{ .Language.Label | upper }}
+      </a>
+      {{- end }}
+    </div>
+    {{- end }}
+  </dialog>
 </nav>

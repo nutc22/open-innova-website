@@ -48,6 +48,41 @@
     });
   }
 
+  // Mobile nav menu (hamburger)
+  var navMenu = document.querySelector('#nav-menu');
+  var navOpenBtn = document.querySelector('[data-open-nav-menu]');
+
+  if (navMenu && navOpenBtn && typeof navMenu.showModal === 'function') {
+    var setExpanded = function (value) {
+      navOpenBtn.setAttribute('aria-expanded', value ? 'true' : 'false');
+    };
+
+    navOpenBtn.addEventListener('click', function () {
+      navMenu.showModal();
+      setExpanded(true);
+    });
+
+    // Any element with data-close-nav-menu inside the dialog closes it
+    // (close button, logo, and every menu link so navigating also dismisses the dialog)
+    navMenu.querySelectorAll('[data-close-nav-menu]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        navMenu.close();
+      });
+    });
+
+    // Click on the backdrop (outside the dialog content) closes it
+    navMenu.addEventListener('click', function (e) {
+      if (e.target === navMenu) {
+        navMenu.close();
+      }
+    });
+
+    // Reset aria-expanded after close (covers ESC, backdrop, link click)
+    navMenu.addEventListener('close', function () {
+      setExpanded(false);
+    });
+  }
+
   // Contact form: build a mailto URL with prefilled subject and body, then open it
   var contactForm = document.querySelector('.contact-form');
   if (contactForm) {
