@@ -86,7 +86,7 @@
   // Contact form: build a mailto URL with prefilled subject and body, then open it
   var contactForm = document.querySelector('.contact-form');
   if (contactForm) {
-    var fallbackRecipient = (contactForm.getAttribute('action') || '').replace(/^mailto:/i, '') || 'info@openinnova.it';
+    var fallbackRecipient = contactForm.getAttribute('data-fallback-recipient') || 'info@openinnova.it';
     var isEnglish = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
 
     var i18n = isEnglish ? {

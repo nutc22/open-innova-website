@@ -11,7 +11,7 @@ The form handler lives in [`assets/js/scripts.js`](../assets/js/scripts.js) and 
 Paste this HTML into any Markdown page (`unsafe = true` is already set in `hugo.toml`, so raw HTML is allowed).
 
 ```html
-<form class="contact-form" action="mailto:info@openinnova.it">
+<form class="contact-form" data-fallback-recipient="info@openinnova.it">
   <div class="form-grid">
     <div class="form-row">
       <label for="contact-name">Nome <span class="form-required">*</span></label>
@@ -55,7 +55,7 @@ The JS handler depends on these conventions — keep them as-is:
 
 | Element | Requirement |
 |---|---|
-| `<form>` | class `contact-form`; `action="mailto:..."` provides the fallback recipient |
+| `<form>` | class `contact-form`; `data-fallback-recipient="email@example.com"` provides the recipient used when no `<option>` is selected (no `action` attribute — keeps Chrome from flagging the page as "not fully secure" for non-HTTPS form submission) |
 | `<input id="contact-name">` | required field, picked up by name |
 | `<input id="contact-email">` | required field, picked up by email |
 | `<input id="contact-phone">` | optional, included in the body only if filled |
