@@ -50,11 +50,12 @@ Draft pages are excluded from the production build.
 │   ├── _default/           # Base templates (baseof.html, single.html)
 │   ├── partials/           # Reusable components (head, nav, hero, footer)
 │   └── index.html          # Homepage template
+├── assets/                 # Processed by Hugo asset pipeline (fingerprinted)
+│   ├── css/style.css       # → /css/style.<hash>.css with SRI integrity
+│   ├── js/scripts.js       # → /js/scripts.<hash>.js with SRI integrity
+│   └── images/             # Logo, og-image — fingerprinted when emitted as URLs
 ├── static/                 # Files copied verbatim to the site root
-│   ├── style.css
-│   ├── scripts.js
-│   ├── favicon.svg
-│   ├── images/
+│   ├── favicon.svg         # Stable URL (must-revalidate, not immutable)
 │   ├── robots.txt
 │   └── llms.txt
 ├── data/
@@ -114,8 +115,8 @@ in the real values.
 
 ## Styling
 
-CSS is hand-written, in `static/style.css`. The design system is driven by CSS
-custom properties:
+CSS is hand-written, in `assets/css/style.css`. The design system is driven by
+CSS custom properties:
 
 ```css
 :root {
@@ -126,7 +127,44 @@ custom properties:
 }
 ```
 
-No CSS framework. No build step. The stylesheet is served as-is.
+No CSS framework. The stylesheet passes through Hugo's asset pipeline only
+for fingerprinting (see below) — no preprocessor, no PostCSS, no autoprefixer.
+
+### Asset fingerprinting (cache busting)
+
+`assets/css/style.css` and `assets/js/scripts.js` go through Hugo's asset
+pipeline. Production builds (`hugo`, the default environment) minify and
+fingerprint each file:
+
+```
+/css/style.min.0302cad5...3f1fdf7.css
+/js/scripts.min.ffa70951...82cec481.js
+```
+
+Layouts reference the fingerprinted URL and add the `integrity` (SRI) and
+`crossorigin="anonymous"` attributes automatically. When the file content
+changes, the hash changes, the HTML reference changes, and browsers fetch the
+new file even though both old and new versions are served with
+`Cache-Control: immutable, max-age=1y`.
+
+Development builds (`hugo server`, environment `development`) skip both
+minify and fingerprint — assets stay at `/css/style.css` and `/js/scripts.js`
+so live reload, source maps in DevTools, and SRI-related friction are
+avoided. The gate is `{{ if hugo.IsProduction }}` in
+`layouts/partials/head.html` and `layouts/_default/baseof.html`.
+
+A repo-level `.gitattributes` forces LF line endings on all text assets to
+keep SRI hashes deterministic across machines (a CRLF↔LF flip would change
+the hash and break integrity checks in the browser).
+
+To edit CSS, JS, or any image referenced by URL from HTML (logo in JSON-LD,
+og-image, etc.), edit the files under `assets/` — **never** under `static/`.
+Files in `static/` are copied verbatim and would defeat fingerprinting.
+
+The favicon (`static/favicon.svg`) is the only deliberate exception: browsers,
+RSS readers, and mobile home-screen shortcuts expect it at the conventional
+`/favicon.svg` path. The deploy script serves it with `must-revalidate` instead
+of `immutable` so that changes still propagate on the next page load.
 
 ## AI agents and search
 
@@ -244,4 +282,5 @@ https://openinnova.it/en/transparency/.
 - [CONTRIBUTING.md](CONTRIBUTING.md) — how to contribute
 - [SECURITY.md](SECURITY.md) — security practices
 - [docs/deployment-aws-s3.md](docs/deployment-aws-s3.md) — deployment guide
+- [docs/contact-form.md](docs/contact-form.md) — contact form (copy-paste example)
 - [NOTICE](NOTICE) — license and attribution

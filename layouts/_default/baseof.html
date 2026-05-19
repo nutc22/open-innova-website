@@ -62,17 +62,24 @@
     </p>
   </dialog>
 
-  <script src="{{ .Site.BaseURL }}scripts.js" defer></script>
+  {{- $script := resources.Get "js/scripts.js" -}}
+  {{- if hugo.IsProduction -}}
+    {{- $script = $script | minify | fingerprint "sha384" -}}
+  {{- end }}
+  <script src="{{ $script.RelPermalink }}"
+    {{- with $script.Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous"{{ end }} defer></script>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {{- $company := hugo.Data.company -}}
+  {{- $logo := resources.Get "images/logo.svg" -}}
+  {{- if hugo.IsProduction }}{{ $logo = $logo | fingerprint "sha384" }}{{ end -}}
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "{{ $company.name }}",
     "url": "{{ .Site.BaseURL }}",
-    "logo": "{{ .Site.BaseURL }}images/logo.svg",
+    "logo": "{{ $logo.Permalink }}",
     "description": "{{ $company.description }}",
     "address": {
       "@type": "PostalAddress",

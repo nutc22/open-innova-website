@@ -30,7 +30,11 @@
 {{- with .Params.image }}
 <meta property="og:image" content="{{ . | absURL }}">
 {{- else }}
-<meta property="og:image" content="{{ .Site.BaseURL }}images/og-image.jpg">
+  {{- with resources.Get "images/og-image.jpg" }}
+    {{- $og := . }}
+    {{- if hugo.IsProduction }}{{ $og = $og | fingerprint "sha384" }}{{ end }}
+<meta property="og:image" content="{{ $og.Permalink }}">
+  {{- end }}
 {{- end }}
 
 {{- /* Twitter Card */ -}}
@@ -50,8 +54,13 @@
 <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}index.xml">
 {{- end }}
 
-{{- /* Stylesheets */ -}}
-<link rel="stylesheet" href="{{ .Site.BaseURL }}style.css">
+{{- /* Stylesheets — minified + fingerprinted + SRI in production only */ -}}
+{{- $style := resources.Get "css/style.css" -}}
+{{- if hugo.IsProduction -}}
+  {{- $style = $style | minify | fingerprint "sha384" -}}
+{{- end -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}"
+  {{- with $style.Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous"{{ end }}>
 
 {{- /* Favicon */ -}}
 <link rel="icon" type="image/svg+xml" href="{{ .Site.BaseURL }}favicon.svg">

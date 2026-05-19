@@ -1,6 +1,11 @@
 # === PROPRIETARY DATA & ASSETS — Copyright Open Innova ===
 # These directories contain proprietary content, branding, and company data.
-assets/
+# Hugo's asset pipeline (css/, js/) is MIT-licensed and tracked; anything
+# else under assets/ stays gitignored.
+assets/*
+!assets/css/
+!assets/js/
+!assets/images/
 content/
 data/company.json
 

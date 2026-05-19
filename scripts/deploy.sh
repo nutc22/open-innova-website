@@ -104,8 +104,10 @@ security_check() {
 deploy_to_s3() {
   log_info "Deploying to S3 bucket: $BUCKET_NAME"
 
-  # First sync: all files with long cache for assets
-  log_info "Syncing files with cache control (1 year for assets)..."
+  # First sync: fingerprinted assets get long-lived immutable cache.
+  # Files with stable URLs (favicon, HTML, sitemap, robots, llms) are excluded
+  # and handled by the second pass with must-revalidate so changes propagate.
+  log_info "Syncing fingerprinted assets with 1-year immutable cache..."
   aws s3 sync public/ "s3://$BUCKET_NAME/" \
     --delete \
     --cache-control "public, max-age=31536000, immutable" \
@@ -113,13 +115,15 @@ deploy_to_s3() {
     --exclude "*.xml" \
     --exclude "robots.txt" \
     --exclude "llms.txt" \
+    --exclude "favicon.svg" \
     || {
       log_error "S3 sync failed"
       exit 1
     }
 
-  # Second sync: HTML, robots, llms, sitemap with must-revalidate
-  log_info "Syncing HTML / sitemap / robots / llms with cache revalidation..."
+  # Second sync: stable-URL files with must-revalidate (browsers always check
+  # for updates, server returns 304 if unchanged).
+  log_info "Syncing HTML / sitemap / robots / llms / favicon with revalidation..."
   aws s3 cp public/ "s3://$BUCKET_NAME/" \
     --recursive \
     --exclude "*" \
@@ -127,6 +131,7 @@ deploy_to_s3() {
     --include "*.xml" \
     --include "robots.txt" \
     --include "llms.txt" \
+    --include "favicon.svg" \
     --cache-control "public, max-age=0, must-revalidate" \
     --metadata-directive REPLACE \
     || {

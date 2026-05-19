@@ -992,6 +992,18 @@ header {
   gap: var(--space-sm);
 }
 
+.contact-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 600px) {
+  .contact-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact-form label {
   display: block;
   font-size: var(--font-size-sm);
@@ -1013,7 +1025,8 @@ header {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   width: 100%;
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
@@ -1027,18 +1040,29 @@ header {
               box-shadow var(--duration-fast) var(--timing-function);
 }
 
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%237a8499' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.4rem;
+}
+
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: var(--color-text-lighter);
 }
 
 .contact-form input:hover,
-.contact-form textarea:hover {
+.contact-form textarea:hover,
+.contact-form select:hover {
   border-color: var(--color-text-lighter);
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   outline: none;
   border-color: var(--color-secondary);
   box-shadow: 0 0 0 3px rgba(45, 122, 95, 0.18);
@@ -1051,13 +1075,9 @@ header {
 
 .contact-form .form-actions {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: var(--space-md);
   margin-top: var(--space-sm);
-}
-
-.contact-form button[type="submit"] {
-  align-self: flex-start;
 }
 
 .form-note {

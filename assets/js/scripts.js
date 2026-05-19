@@ -86,38 +86,68 @@
   // Contact form: build a mailto URL with prefilled subject and body, then open it
   var contactForm = document.querySelector('.contact-form');
   if (contactForm) {
-    var recipient = (contactForm.getAttribute('action') || '').replace(/^mailto:/i, '') || 'info@openinnova.it';
+    var fallbackRecipient = (contactForm.getAttribute('action') || '').replace(/^mailto:/i, '') || 'info@openinnova.it';
+    var isEnglish = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
+
+    var i18n = isEnglish ? {
+      greeting: 'Hello,',
+      intro: function (name, topic) {
+        return 'I\'m writing through the contact form on openinnova.it regarding "' + topic + '".';
+      },
+      contactsHeader: 'My details:',
+      labelName: 'Name',
+      labelEmail: 'Email',
+      labelPhone: 'Phone',
+      signoff: 'Best regards,',
+      subjectPrefix: function (topic, name) {
+        var who = name || 'a visitor';
+        return '[' + topic + '] Request from ' + who + ' — openinnova.it';
+      }
+    } : {
+      greeting: 'Buongiorno,',
+      intro: function (name, topic) {
+        return 'vi scrivo tramite il modulo di contatto di openinnova.it in merito a "' + topic + '".';
+      },
+      contactsHeader: 'I miei recapiti:',
+      labelName: 'Nome',
+      labelEmail: 'Email',
+      labelPhone: 'Telefono',
+      signoff: 'Cordiali saluti,',
+      subjectPrefix: function (topic, name) {
+        var who = name || 'un visitatore';
+        return '[' + topic + '] Richiesta da ' + who + ' — openinnova.it';
+      }
+    };
 
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var name = (document.getElementById('contact-name') || {}).value || '';
-      var email = (document.getElementById('contact-email') || {}).value || '';
-      var phone = (document.getElementById('contact-phone') || {}).value || '';
-      var message = (document.getElementById('contact-message') || {}).value || '';
+      var name = ((document.getElementById('contact-name') || {}).value || '').trim();
+      var email = ((document.getElementById('contact-email') || {}).value || '').trim();
+      var phone = ((document.getElementById('contact-phone') || {}).value || '').trim();
+      var message = ((document.getElementById('contact-message') || {}).value || '').trim();
 
-      name = name.trim();
-      email = email.trim();
-      phone = phone.trim();
-      message = message.trim();
+      var topicSelect = document.getElementById('contact-topic');
+      var selectedOption = topicSelect ? topicSelect.options[topicSelect.selectedIndex] : null;
+      var recipient = (selectedOption && selectedOption.getAttribute('data-recipient')) || fallbackRecipient;
+      var topicLabel = selectedOption ? selectedOption.textContent.trim() : '';
 
-      var subject = name
-        ? 'Contatto da ' + name + ' via openinnova.it'
-        : 'Contatto via openinnova.it';
+      var subject = i18n.subjectPrefix(topicLabel, name);
 
       var lines = [];
-      lines.push('Salve,');
+      lines.push(i18n.greeting);
       lines.push('');
-      var intro = 'sono ' + (name || '[nome]');
-      if (email) intro += ' (' + email + ')';
-      if (phone) intro += ', telefono ' + phone;
-      intro += ' e vi scrivo da openinnova.it.';
-      lines.push(intro);
+      lines.push(i18n.intro(name, topicLabel));
       lines.push('');
-      lines.push(message || '[scrivi qui il tuo messaggio]');
+      lines.push(i18n.contactsHeader);
+      lines.push('· ' + i18n.labelName + ': ' + (name || '___'));
+      lines.push('· ' + i18n.labelEmail + ': ' + (email || '___'));
+      if (phone) lines.push('· ' + i18n.labelPhone + ': ' + phone);
       lines.push('');
-      lines.push('Grazie,');
-      lines.push(name || '');
+      lines.push(message);
+      lines.push('');
+      lines.push(i18n.signoff);
+      lines.push(name);
 
       var url = 'mailto:' + recipient
         + '?subject=' + encodeURIComponent(subject)

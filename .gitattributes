@@ -1,2 +1,30 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Force LF line endings on text files across all platforms.
+# Critical for Subresource Integrity (SRI) hashes: a CRLF vs LF byte difference
+# in a fingerprinted asset (css/js/svg) produces a different hash on the
+# build machine vs. the committed file, breaking integrity verification in
+# browsers. Keep this file even if all current contributors use macOS/Linux.
+
+* text=auto eol=lf
+
+# Hugo asset pipeline inputs (hash determinism)
+*.css   text eol=lf
+*.js    text eol=lf
+*.svg   text eol=lf
+*.html  text eol=lf
+*.md    text eol=lf
+*.toml  text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.json  text eol=lf
+
+# Binary assets (never line-normalize)
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.ico   binary
+*.gif   binary
+*.webp  binary
+*.avif  binary
+*.woff  binary
+*.woff2 binary
+*.pdf   binary
