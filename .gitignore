@@ -6,8 +6,13 @@ assets/*
 !assets/css/
 !assets/js/
 !assets/images/
-content/
+# content/ and data/ hold this portfolio's own (non-proprietary) content — tracked.
 data/company.json
+
+# === PRIVATE SOURCE NOTES — never publish ===
+# docs/ contains raw CV source material with personal data (home address, birth
+# date). It must stay local-only: the public site/repo carry only minimized data.
+docs/
 
 # === PRIVATE ENVIRONMENT & CREDENTIALS ===
 # Never commit credentials, API keys, or sensitive environment-specific config.

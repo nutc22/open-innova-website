@@ -4,18 +4,11 @@
   {{- partial "head.html" . -}}
 </head>
 <body>
-  <header role="banner">
-    {{- partial "nav.html" . -}}
-  </header>
+  <a class="skip-link" href="#main-content">{{ if eq .Language.Lang "it" }}Vai al contenuto{{ else }}Skip to content{{ end }}</a>
 
-  <main id="main-content" role="main">
-    {{- block "main" . }}{{- end }}
-  </main>
+  {{- block "main" . }}{{- end }}
 
-  <footer role="contentinfo">
-    {{- partial "footer.html" . -}}
-  </footer>
-
+  {{- if not .Params.bare }}
   <button type="button" class="back-to-top" aria-label="{{ if eq .Language.Lang "it" }}Torna su{{ else }}Back to top{{ end }}">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <polyline points="18 15 12 9 6 15"/>
@@ -35,66 +28,56 @@
   <dialog id="cookie-modal" class="cookie-modal" aria-labelledby="cookie-modal-title">
     <button type="button" class="cookie-modal__close" aria-label="{{ if eq .Language.Lang "it" }}Chiudi{{ else }}Close{{ end }}" data-close-cookie-modal>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-        <line x1="6" y1="6" x2="18" y2="18"/>
-        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
       </svg>
     </button>
     <h2 id="cookie-modal-title" class="cookie-modal__title">
-      {{- if eq .Language.Lang "it" -}}
-      Sorpreso che non ti abbiamo chiesto il consenso?
-      {{- else -}}
-      Surprised we never asked for your consent?
-      {{- end -}}
+      {{- if eq .Language.Lang "it" }}Questo sito non usa cookie{{ else }}This site uses no cookies{{ end -}}
     </h2>
     <p class="cookie-modal__body">
       {{- if eq .Language.Lang "it" -}}
-      Perché non usiamo cookie. Nessuno: né tecnici di tracciamento, né di profilazione. <br>Non sappiamo chi sei, da dove arrivi o cosa hai guardato, e non vogliamo saperlo, per preservare completamente la tua privacy. <br>La tua visita è completamente anonima.
+      Niente cookie, niente analytics, niente tracciamento. Non so chi sei, da dove arrivi o cosa apri, e non voglio saperlo. La tua visita è completamente anonima.
       {{- else -}}
-      Because we don't use cookies. None: no tracking cookies, no profiling cookies. <br>We don't know who you are, where you came from, or what you looked at — and we don't want to. <br>Your visit is fully anonymous.
+      No cookies, no analytics, no tracking. I don't know who you are, where you came from or what you open — and I don't want to. Your visit is completely anonymous.
       {{- end -}}
     </p>
     <p class="cookie-modal__body">
       {{- if eq .Language.Lang "it" -}}
-      Vuoi i <a href="{{ .Site.BaseURL }}trasparenza/">dettagli tecnici</a>? Spieghiamo come è fatto il sito e cosa abbiamo deciso di non usare. Per la versione formale, leggi la <a href="{{ .Site.BaseURL }}privacy/">privacy policy</a>.
+      Vuoi i dettagli? Leggi la pagina <a href="{{ .Site.BaseURL }}trasparenza/">Trasparenza</a>.
       {{- else -}}
-      Want the <a href="{{ .Site.BaseURL }}en/transparency/">technical details</a>? We explain how the site is built and what we chose not to use. For the formal version, read our <a href="{{ .Site.BaseURL }}en/privacy/">privacy policy</a>.
+      Want the details? Read the <a href="{{ .Site.BaseURL }}en/transparency/">Transparency</a> page.
       {{- end -}}
     </p>
   </dialog>
+  {{- end }}
 
   {{- $script := resources.Get "js/scripts.js" -}}
-  {{- if hugo.IsProduction -}}
-    {{- $script = $script | minify | fingerprint "sha384" -}}
-  {{- end }}
+  {{- if hugo.IsProduction -}}{{- $script = $script | minify | fingerprint "sha384" -}}{{- end }}
   <script src="{{ $script.RelPermalink }}"
     {{- with $script.Data.Integrity }} integrity="{{ . }}" crossorigin="anonymous"{{ end }} defer></script>
 
-  <!-- Structured Data (JSON-LD) -->
+  {{- /* Structured Data (JSON-LD) — Person */ -}}
+  {{- $p := hugo.Data.profile -}}
   <script type="application/ld+json">
-  {{- $company := hugo.Data.company -}}
-  {{- $logo := resources.Get "images/logo.svg" -}}
-  {{- if hugo.IsProduction }}{{ $logo = $logo | fingerprint "sha384" }}{{ end -}}
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "{{ $company.name }}",
-    "url": "{{ .Site.BaseURL }}",
-    "logo": "{{ $logo.Permalink }}",
-    "description": "{{ $company.description }}",
+    "@type": "Person",
+    "name": {{ $p.name }},
+    "url": {{ .Site.BaseURL }},
+    "email": {{ $p.email }},
+    "jobTitle": {{ $p.job_title }},
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "{{ $company.registeredOffice.street }}",
-      "addressLocality": "{{ $company.registeredOffice.city }}",
-      "addressRegion": "{{ $company.registeredOffice.province }}",
-      "postalCode": "{{ $company.registeredOffice.postalCode }}",
-      "addressCountry": "{{ $company.registeredOffice.countryCode }}"
+      "addressLocality": "Perugia",
+      "addressRegion": "PG",
+      "addressCountry": "IT"
     },
     "sameAs": [
       {{- $links := slice -}}
-      {{- with $company.socialMedia.linkedin }}{{ $links = $links | append . }}{{ end -}}
-      {{- with $company.socialMedia.github }}{{ $links = $links | append . }}{{ end -}}
+      {{- with $p.github }}{{ $links = $links | append . }}{{ end -}}
+      {{- with $p.linkedin }}{{ $links = $links | append . }}{{ end -}}
       {{- range $i, $url := $links }}{{ if $i }},{{ end }}
-      "{{ $url }}"{{ end }}
+      {{ $url }}{{ end }}
     ]
   }
   </script>

@@ -1,0 +1,187 @@
+# =====================================================================
+# CV/portfolio content — English version (draft, to be reviewed).
+# Source: docs/esperienze.md. Voice: first person, sober, technical.
+# "community" cards are placeholders to refine after the interview.
+# =====================================================================
+
+hero:
+  badge: "Available for new collaborations"
+  headline: "Physicist · Cloud & ML Engineer"
+  tagline: >-
+    I turn complex problems into reliable infrastructure and models that hold up
+    in production, with the methodological rigour of experimental physics.
+  cta_primary: "Get in touch"
+  cta_secondary: "View CV"
+
+profilo:
+  eyebrow: "01 — Profile"
+  title: "From theory to production systems"
+  paragraphs:
+    - >-
+      I am a physicist by training who designs and runs cloud infrastructure and
+      machine learning systems. I bring the experimental method — measure, isolate
+      the variables, iterate — into the life cycle of real platforms and models.
+    - >-
+      I work daily with <strong>AWS and Kubernetes</strong>, build data pipelines,
+      and handle anomaly detection along with evaluation and red teaming of
+      LLM-based agents. I care about reliability: observability, cost control,
+      reproducibility.
+    - >-
+      I look for essential systems: few dependencies, predictable behaviour, honest
+      documentation. This site is an example — static, no cookies, no tracking.
+
+esperienze:
+  eyebrow: "02 — Experience"
+  title: "Professional experience"
+  items:
+    - period: "2026 — present"
+      company: "Open Innova S.r.l."
+      url: "https://www.openinnova.it"
+      start: "2026-03"
+      location: "Perugia, IT"
+      role: "Founding partner"
+      stack: ["Software", "Consulting", "Coaching"]
+      bullets:
+        - "Software production and distribution, management and business consulting."
+        - "Career coaching and tutoring."
+    - period: "2025 — present"
+      company: "Red Lynx Robotics S.r.l."
+      start: "2025-06"
+      location: "Italy · Remote"
+      role: "Data Scientist"
+      stack: ["Python", "Dask", "Kubernetes", "Agent Evaluation", "LLM", "Computer Vision"]
+      bullets:
+        - "Large-scale data analysis with Python and Dask."
+        - "Development of network anomaly-detection systems (Watchman, Watchdog and Streamwatch projects)."
+        - "Agent evaluation: designing and running evaluations of AI agents, plus red teaming of LLM-based systems."
+        - "Support for Kubernetes cluster management, within a context of bespoke AI, computer vision and advanced robotics."
+    - period: "2024 — present"
+      company: "Gestiscu"
+      url: "https://gestiscu.it"
+      start: "2024-03"
+      location: "Remote"
+      role: "Founder · Head of Infrastructure, Networking & Security"
+      stack: ["AWS", "Kubernetes (kops)", "Docker", "Helm", "Django"]
+      bullets:
+        - "Gestiscu is a multi-tenant Django-based SaaS management software that I co-founded."
+        - "End-to-end management of the AWS cloud platform hosting it: orchestration with Docker, Kubernetes (kops) and Helm, networking and security."
+    - period: "2023 — present"
+      company: "scuacademy"
+      start: "2023-09"
+      location: "Remote"
+      role: "E-learning platform management"
+      stack: ["AWS", "EC2", "Route 53", "Moodle"]
+      bullets:
+        - "Administration of around 20 Moodle instances on AWS for different clients."
+        - "EC2 provisioning, DNS configuration, TLS certificates and cost auditing."
+    - period: "2022 — present"
+      company: "Self-employed"
+      start: "2022-07"
+      location: "Perugia, IT"
+      role: "Application software developer"
+      stack: ["Python", "Django", "Linux"]
+      bullets:
+        - "Analysis, development and support of management software for private associations."
+        - "Working in small teams across every phase: from writing code to running the servers."
+
+competenze:
+  eyebrow: "03 — Skills"
+  title: "Technical skills"
+  groups:
+    - name: "Languages"
+      skills:
+        - { name: "Python", level: "Advanced" }
+        - { name: "C / C++", level: "Advanced" }
+        - { name: "Bash", level: "Good" }
+        - { name: "JavaScript", level: "Good" }
+    - name: "Web & Development"
+      skills:
+        - { name: "Django", level: "Advanced" }
+        - { name: "FastAPI", level: "Good" }
+        - { name: "HTML", level: "Good" }
+        - { name: "CSS", level: "Basic" }
+    - name: "Cloud & DevOps"
+      skills:
+        - { name: "AWS", level: "Advanced" }
+        - { name: "Kubernetes", level: "Advanced" }
+        - { name: "Docker", level: "Advanced" }
+        - { name: "Helm", level: "Advanced" }
+        - { name: "Git", level: "Advanced" }
+    - name: "Data & Analysis"
+      skills:
+        - { name: "Pandas", level: "Advanced" }
+        - { name: "PostgreSQL", level: "Good" }
+        - { name: "MySQL", level: "Good" }
+        - { name: "Redis", level: "Good" }
+        - { name: "DuckDB", level: "Good" }
+        - { name: "ROOT", level: "Good" }
+    - name: "Systems & Tools"
+      skills:
+        - { name: "Linux", level: "Advanced" }
+        - { name: "LaTeX", level: "Good" }
+        - { name: "Markdown", level: "Advanced" }
+
+formazione:
+  eyebrow: "04 — Education"
+  title: "Education"
+  items:
+    - year: "2022"
+      place: "University of Perugia"
+      title: "BSc in Physical Sciences and Technologies (L-30)"
+      detail: "102/110 — thesis “Mass loss in AGB stars and its observational indicators” (advisor: Maurizio M. Busso)."
+    - year: "2016"
+      place: "Liceo Classico “A. Mariotti”, Perugia"
+      title: "Classical High School Diploma"
+      detail: "96/100 — humanities education and logical-argumentative method."
+  masterclasses_label: "Masterclasses & training"
+  masterclasses:
+    - "SOSC 23 — Fifth International School on Open Science Cloud (Perugia, 2023)"
+
+altro:
+  eyebrow: "05 — Beyond work"
+  title: "Projects, talks & community"
+  cards:
+    - kind: "Educational project"
+      title: "DesTEENazione"
+      desc: >-
+        Computer-science workshop with the teenagers of the DesTEENazione space in
+        Perugia: together we designed and built a Telegram chatbot with semantic
+        search.
+      url: "https://www.desteenazione.it/inaugurato-lo-spazio-desteenazione-a-perugia/"
+    - kind: "Conference"
+      title: "PyCon Italia 2026"
+      desc: >-
+        Attended Italy's main Python conference: ecosystem, best practices and
+        community.
+    - kind: "Sport"
+      title: "Futsal coach"
+      desc: >-
+        Coached an amateur five-a-side team of the Sentinelle del Mattino club in
+        the provincial CSI league: group management, training sessions and matches.
+    - kind: "Volunteering"
+      title: "Youth leader — Oratorio Sentinelle, San Sisto"
+      desc: >-
+        Youth leader since the age of 15, now also coordinating activities and
+        fellow leaders: summer camps and youth groups.
+    - kind: "Community"
+      title: "SetteValley Community AI"
+      desc: >-
+        Active member of the local community dedicated to artificial intelligence:
+        meetups, technical discussion and outreach.
+
+contatti:
+  eyebrow: "06 — Contact"
+  title: "Let's talk about a project"
+  body: >-
+    Cloud, infrastructure, MLOps, data pipelines or R&D consulting.
+    Drop me a line: I reply to every email.
+
+cv:
+  profile_summary: >-
+    Physicist by training and cloud/ML engineer. I bring the experimental method
+    into the life cycle of cloud platforms and machine learning systems: measure,
+    isolate the variables, iterate. Specialised in AWS/Kubernetes infrastructure,
+    data pipelines and advanced analysis.
+  languages_label: "Languages"
+  languages: "Italian (native) · English (B1)"
+  updated: "June 2026"

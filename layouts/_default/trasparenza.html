@@ -1,0 +1,104 @@
+{{- define "main" -}}
+{{- $isIt := eq .Language.Lang "it" -}}
+{{- $home := cond $isIt .Site.BaseURL (printf "%sen/" .Site.BaseURL) -}}
+
+<div class="subnav">
+  <div class="subnav__inner">
+    <a class="subnav__back" href="{{ $home }}">← {{ hugo.Data.profile.name }}</a>
+  </div>
+</div>
+
+<main id="main-content" class="prose">
+  {{- if $isIt }}
+  <p class="eyebrow">Trasparenza</p>
+  <h1>Come è fatto questo sito</h1>
+  <p class="lead">Nessun cookie. Nessun tracciamento. Nessuna richiesta di consenso, perché non c'è nulla da consentire. Questa pagina racconta com'è costruito il sito e cosa ho scelto di <em>non</em> usare.</p>
+
+  <div class="stats">
+    <div class="stat"><p class="stat__value">0</p><p class="stat__label">cookie e tracker</p></div>
+    <div class="stat"><p class="stat__value">0</p><p class="stat__label">richieste a CDN esterne</p></div>
+    <div class="stat"><p class="stat__value">100%</p><p class="stat__label">statico</p></div>
+  </div>
+
+  <section>
+    <h2>Com'è fatto</h2>
+    <ul class="tlist">
+      <li data-mark="›">Sito completamente statico: nessun database, nessuna logica a runtime. Le pagine sono generate in fase di build con Hugo.</li>
+      <li data-mark="›">Solo HTML e CSS, con una manciata di JavaScript vanilla. Nessun framework.</li>
+      <li data-mark="›">Font di sistema del dispositivo: niente font scaricati da CDN esterne.</li>
+      <li data-mark="›">Hosting statico con cache via CDN del provider. Codice e template versionati su Git.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Cosa ho scelto di non fare</h2>
+    <ul class="tlist">
+      <li data-mark="×">Niente cookie, di nessun tipo: né tecnici di tracciamento, né di profilazione.</li>
+      <li data-mark="×">Niente analytics: non so chi sei, da dove arrivi o cosa apri, e non voglio saperlo.</li>
+      <li data-mark="×">Niente popup di consenso: non servono se non si raccolgono dati.</li>
+      <li data-mark="×">Niente font da Google, niente embed di terze parti, niente chatbot.</li>
+      <li data-mark="×">Niente localStorage: anche il tema scuro segue l'impostazione del tuo sistema operativo.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Perché lo faccio così</h2>
+    <ul class="tlist">
+      <li data-mark="›">C'è un legame diretto tra essenzialità tecnica, rispetto della privacy e basso impatto ambientale: lo stesso obiettivo visto da angolazioni diverse.</li>
+      <li data-mark="›">È lo stesso principio che applico quando progetto sistemi: costruire quello che serve, e niente di più.</li>
+    </ul>
+  </section>
+
+  <div class="callout">
+    <p style="font-weight:600">Hai notato qualcosa che potrei togliere ancora?</p>
+    <p style="color:var(--text-muted)">Scrivimi a <a href="mailto:{{ hugo.Data.profile.email }}">{{ hugo.Data.profile.email }}</a>. Le critiche sull'essenzialità sono benvenute.</p>
+  </div>
+  {{- else }}
+  <p class="eyebrow">Transparency</p>
+  <h1>How this site is built</h1>
+  <p class="lead">No cookies. No tracking. No consent request, because there is nothing to consent to. This page explains how the site is built and what I chose <em>not</em> to use.</p>
+
+  <div class="stats">
+    <div class="stat"><p class="stat__value">0</p><p class="stat__label">cookies and trackers</p></div>
+    <div class="stat"><p class="stat__value">0</p><p class="stat__label">external CDN requests</p></div>
+    <div class="stat"><p class="stat__value">100%</p><p class="stat__label">static</p></div>
+  </div>
+
+  <section>
+    <h2>How it's built</h2>
+    <ul class="tlist">
+      <li data-mark="›">Fully static site: no database, no runtime logic. Pages are generated at build time with Hugo.</li>
+      <li data-mark="›">Just HTML and CSS, with a handful of vanilla JavaScript. No framework.</li>
+      <li data-mark="›">The device's system fonts: no fonts downloaded from external CDNs.</li>
+      <li data-mark="›">Static hosting with the provider's CDN cache. Code and templates versioned in Git.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What I chose not to do</h2>
+    <ul class="tlist">
+      <li data-mark="×">No cookies of any kind: neither tracking nor profiling.</li>
+      <li data-mark="×">No analytics: I don't know who you are, where you came from or what you open — and I don't want to.</li>
+      <li data-mark="×">No consent popups: not needed when no data is collected.</li>
+      <li data-mark="×">No Google fonts, no third-party embeds, no chatbots.</li>
+      <li data-mark="×">No localStorage: even dark mode follows your operating system setting.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Why I build it this way</h2>
+    <ul class="tlist">
+      <li data-mark="›">There's a direct link between technical minimalism, privacy and low environmental impact: the same goal seen from different angles.</li>
+      <li data-mark="›">It's the same principle I apply when designing systems: build what's needed, and nothing more.</li>
+    </ul>
+  </section>
+
+  <div class="callout">
+    <p style="font-weight:600">Spotted something I could still remove?</p>
+    <p style="color:var(--text-muted)">Email me at <a href="mailto:{{ hugo.Data.profile.email }}">{{ hugo.Data.profile.email }}</a>. Criticism about minimalism is welcome.</p>
+  </div>
+  {{- end }}
+</main>
+
+{{ partial "footer.html" . }}
+{{- end -}}

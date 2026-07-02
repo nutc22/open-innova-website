@@ -1,14 +1,175 @@
 {{- define "main" -}}
-<!-- Hero Section -->
-{{- partial "hero.html" . -}}
+{{- $cv := index hugo.Data.cv .Language.Lang -}}
+{{- $isIt := eq .Language.Lang "it" -}}
+{{- $cvURL := cond $isIt (printf "%scv/" .Site.BaseURL) (printf "%sen/cv/" .Site.BaseURL) -}}
+{{- $lvlClass := dict "Avanzato" "lvl-adv" "Buono" "lvl-good" "Base" "lvl-base" "Advanced" "lvl-adv" "Good" "lvl-good" "Basic" "lvl-base" -}}
 
-<!-- Main Content -->
-<section class="content-section">
-  <div class="container">
-    <div class="page-body">
-      {{- .Content }}
+{{ partial "nav.html" . }}
+
+{{- with resources.Get "images/bg-deco.png" }}
+<div class="bg-deco" aria-hidden="true"><img src="{{ .RelPermalink }}" alt="" loading="lazy"></div>
+{{- end }}
+
+<main id="main-content">
+  <div id="top"></div>
+
+  {{- with $cv.hero }}
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge"><span class="dot"></span>{{ .badge }}</div>
+      <h1 class="hero-title">{{ hugo.Data.profile.name }}</h1>
+      <p class="hero-headline">{{ replace .headline "·" "<span class=\"sep\">·</span>" | safeHTML }}</p>
+      <p class="hero-tagline">{{ .tagline }}</p>
+      <div class="hero-cta">
+        <a href="#contatti" class="btn btn-primary">{{ .cta_primary }}</a>
+        <a href="{{ $cvURL }}" class="btn btn-secondary">{{ .cta_secondary }}</a>
+        <span class="loc">{{ hugo.Data.profile.location }} · Remote</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  {{- end }}
 
+  {{- with $cv.profilo }}
+  <section id="profilo" class="section">
+    <div class="container">
+      <div class="profile-grid">
+        <div class="profile-grid__head">
+          <p class="eyebrow">{{ .eyebrow }}</p>
+          <h2>{{ .title }}</h2>
+        </div>
+        <div class="profile-grid__body">
+          {{- range .paragraphs }}<p>{{ . | safeHTML }}</p>{{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with $cv.esperienze }}
+  <section id="esperienze" class="section">
+    <div class="container">
+      <p class="eyebrow">{{ .eyebrow }}</p>
+      <h2 class="section__title">{{ .title }}</h2>
+      <div class="exp">
+        {{- range .items }}
+        <article class="exp-item">
+          <div class="exp-item__meta">
+            <p class="exp-item__period">{{ .period }}</p>
+            <p class="exp-item__company">{{ if .url }}<a href="{{ .url }}" rel="external noopener" target="_blank">{{ .company }}</a>{{ else }}{{ .company }}{{ end }}</p>
+            <p class="exp-item__loc">{{ .location }}</p>
+          </div>
+          <div class="exp-item__body">
+            <h3 class="exp-item__role">{{ .role }}</h3>
+            {{- with .stack }}
+            <div class="tags">{{ range . }}<span class="tag">{{ . }}</span>{{ end }}</div>
+            {{- end }}
+            <ul class="bullets">{{ range .bullets }}<li>{{ . }}</li>{{ end }}</ul>
+          </div>
+        </article>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with $cv.competenze }}
+  <section id="competenze" class="section">
+    <div class="container">
+      <p class="eyebrow">{{ .eyebrow }}</p>
+      <h2 class="section__title" style="margin-bottom:12px">{{ .title }}</h2>
+      <div class="legend">
+        <span><span class="sw lvl-adv"></span>{{ if $isIt }}Avanzato{{ else }}Advanced{{ end }}</span>
+        <span><span class="sw lvl-good"></span>{{ if $isIt }}Buono{{ else }}Good{{ end }}</span>
+        <span><span class="sw lvl-base"></span>{{ if $isIt }}Base{{ else }}Basic{{ end }}</span>
+      </div>
+      <div class="skill-grid">
+        {{- range $i, $g := .groups }}
+        <div class="skill-card">
+          <h3><span class="idx">{{ printf "%02d" (add $i 1) }}</span>{{ $g.name }}</h3>
+          <div class="skill-list">
+            {{- range $g.skills }}
+            <span class="chip">{{ .name }}<span class="lvl {{ index $lvlClass .level }}">{{ .level }}</span></span>
+            {{- end }}
+          </div>
+        </div>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with $cv.formazione }}
+  <section id="formazione" class="section">
+    <div class="container">
+      <p class="eyebrow">{{ .eyebrow }}</p>
+      <h2 class="section__title">{{ .title }}</h2>
+      <div class="edu">
+        {{- range .items }}
+        <article class="edu-item">
+          <div class="edu-item__meta">
+            <p class="edu-item__year">{{ .year }}</p>
+            <p class="edu-item__place">{{ .place }}</p>
+          </div>
+          <div class="edu-item__body">
+            <h3 class="edu-item__title">{{ .title }}</h3>
+            <p class="edu-item__detail">{{ .detail }}</p>
+          </div>
+        </article>
+        {{- end }}
+      </div>
+      {{- with .masterclasses }}
+      <div class="master">
+        <p class="master__label">{{ $cv.formazione.masterclasses_label }}</p>
+        <div class="master__list">{{ range . }}<span>{{ . }}</span>{{ end }}</div>
+      </div>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with $cv.altro }}
+  <section id="altro" class="section">
+    <div class="container">
+      <p class="eyebrow">{{ .eyebrow }}</p>
+      <h2 class="section__title">{{ .title }}</h2>
+      <div class="cards">
+        {{- range .cards }}
+        {{- if .url }}
+        <a class="card" href="{{ .url }}" rel="external noopener" target="_blank">
+          <span class="kind">{{ .kind }}</span>
+          <h3>{{ .title }}</h3>
+          <p>{{ .desc }}</p>
+        </a>
+        {{- else }}
+        <div class="card">
+          <span class="kind">{{ .kind }}</span>
+          <h3>{{ .title }}</h3>
+          <p>{{ .desc }}</p>
+        </div>
+        {{- end }}
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with $cv.contatti }}
+  <section id="contatti" class="section">
+    <div class="container">
+      <div class="contact-card">
+        <p class="eyebrow">{{ .eyebrow }}</p>
+        <h2>{{ .title }}</h2>
+        <p>{{ .body }}</p>
+        <div class="contact-actions">
+          <a href="mailto:{{ hugo.Data.profile.email }}" class="btn btn-primary">{{ hugo.Data.profile.email }}</a>
+          {{- with hugo.Data.profile.linkedin }}<a href="{{ . }}" class="btn btn-secondary" rel="me noopener">LinkedIn</a>{{ end }}
+          {{- with hugo.Data.profile.github }}<a href="{{ . }}" class="btn btn-secondary" rel="me noopener">GitHub</a>{{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{- end }}
+</main>
+
+{{ partial "footer.html" . }}
 {{- end -}}

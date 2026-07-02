@@ -1,0 +1,90 @@
+{{- define "main" -}}
+{{- $cv := index hugo.Data.cv .Language.Lang -}}
+{{- $p := hugo.Data.profile -}}
+{{- $isIt := eq .Language.Lang "it" -}}
+{{- $home := cond $isIt .Site.BaseURL (printf "%sen/" .Site.BaseURL) -}}
+
+<div class="cv-toolbar no-print">
+  <a href="{{ $home }}">← {{ if $isIt }}Sito{{ else }}Site{{ end }}</a>
+  <span class="cv-toolbar__title">CV — {{ $p.name }}</span>
+  <span class="cv-toolbar__hint">{{ if $isIt }}Anteprima formato A4{{ else }}A4 preview{{ end }}</span>
+  {{- with .OutputFormats.Get "europass" }}
+  <a href="{{ .RelPermalink }}" download>Europass XML</a>
+  {{- end }}
+  <button type="button" class="cv-print-btn" data-print>{{ if $isIt }}Stampa / Salva PDF{{ else }}Print / Save PDF{{ end }}</button>
+</div>
+
+<main id="main-content" class="cv-wrap">
+  <div class="cv-sheet">
+    <header class="cv-header">
+      <div>
+        <h1>{{ $p.name }}</h1>
+        <p class="role">{{ $cv.hero.headline }}</p>
+      </div>
+      <div class="meta">
+        <div>{{ $p.email }}</div>
+        <div>{{ $p.location }} · Remote</div>
+        {{- with $p.github }}<div>{{ replaceRE "^https?://" "" . }}</div>{{ end }}
+        {{- with $p.linkedin }}<div>{{ replaceRE "^https?://" "" . }}</div>{{ end }}
+      </div>
+    </header>
+
+    <p class="cv-summary">{{ $cv.cv.profile_summary }}</p>
+
+    <section>
+      <h2 class="cv-h2">{{ if $isIt }}Esperienza professionale{{ else }}Professional experience{{ end }}</h2>
+      <div class="cv-jobs">
+        {{- range $cv.esperienze.items }}
+        <div class="cv-job">
+          <div class="cv-job__head">
+            <h3 class="cv-job__role">{{ .role }}</h3>
+            <span class="cv-job__period">{{ .period }}</span>
+          </div>
+          <p class="cv-job__org">{{ .company }} · {{ .location }}</p>
+          <ul>{{ range .bullets }}<li>{{ . }}</li>{{ end }}</ul>
+        </div>
+        {{- end }}
+      </div>
+    </section>
+
+    <div class="cv-cols">
+      <section class="cv-block">
+        <h2 class="cv-h2">{{ if $isIt }}Competenze{{ else }}Skills{{ end }}</h2>
+        {{- range $cv.competenze.groups }}
+        {{- $names := slice }}{{ range .skills }}{{ $names = $names | append .name }}{{ end }}
+        <div class="cv-skill">
+          <p class="k">{{ .name }}</p>
+          <p class="v">{{ delimit $names ", " }}</p>
+        </div>
+        {{- end }}
+      </section>
+
+      <section class="cv-block">
+        <h2 class="cv-h2">{{ if $isIt }}Formazione{{ else }}Education{{ end }}</h2>
+        {{- range $cv.formazione.items }}
+        <div class="cv-edu">
+          <div class="cv-edu__head">
+            <p class="cv-edu__title">{{ .title }}</p>
+            <span class="cv-edu__year">{{ .year }}</span>
+          </div>
+          <p class="cv-edu__detail">{{ .place }} · {{ .detail }}</p>
+        </div>
+        {{- end }}
+
+        {{- with $cv.formazione.masterclasses }}
+        <h2 class="cv-h2" style="margin-top:18px">{{ $cv.formazione.masterclasses_label }}</h2>
+        <ul class="cv-list">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+        {{- end }}
+
+        <h2 class="cv-h2" style="margin-top:18px">{{ $cv.cv.languages_label }}</h2>
+        <p class="v" style="font-size:12px;color:#33332f;margin:0">{{ $cv.cv.languages }}</p>
+      </section>
+    </div>
+
+    <footer class="cv-footer">
+      <span>{{ $p.name }} — {{ if $isIt }}Curriculum Vitae{{ else }}Résumé{{ end }}</span>
+      <span>{{ if $isIt }}Aggiornato{{ else }}Updated{{ end }}: {{ $cv.cv.updated }}</span>
+    </footer>
+  </div>
+</main>
+{{- end -}}

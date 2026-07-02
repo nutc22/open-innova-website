@@ -1,0 +1,8 @@
+# Shared, language-neutral identity. Consumed by head.html (JSON-LD) and footer.
+name: "Daniele Nucciarelli"
+job_title: "Cloud & ML Engineer"
+email: "info@daniele.nucciarelli.it"
+location: "Perugia, IT"
+url: "https://daniele.nucciarelli.it"
+github: "https://github.com/nutc22"
+linkedin: "https://www.linkedin.com/in/daniele-nucciarelli-663695412"

@@ -1,25 +1,27 @@
 {{- define "main" -}}
-<section class="content-section">
-  <div class="container">
-    <div class="page-body">
+{{ partial "nav.html" . }}
+<main id="main-content">
+  <section class="section" style="border-top:none">
+    <div class="container">
       {{- if eq .Site.Language.Lang "it" -}}
-      <h1>404 — Pagina non trovata</h1>
-      <p>La pagina che cercavi non esiste, o è stata spostata.</p>
+      <p class="eyebrow">404</p>
+      <h1 class="section__title">Pagina non trovata</h1>
+      <p style="color:var(--text-muted)">La pagina che cercavi non esiste, o è stata spostata.</p>
       <p>
-        <a href="{{ .Site.BaseURL }}">Torna alla home</a>
-        &nbsp;·&nbsp;
-        <a href="{{ .Site.BaseURL }}contatti/">Contattaci</a>
+        <a href="{{ .Site.BaseURL }}" class="btn btn-secondary">Torna alla home</a>
+        <a href="{{ .Site.BaseURL }}#contatti" class="btn btn-secondary">Contattami</a>
       </p>
       {{- else -}}
-      <h1>404 — Page not found</h1>
-      <p>The page you were looking for doesn't exist, or has moved.</p>
+      <p class="eyebrow">404</p>
+      <h1 class="section__title">Page not found</h1>
+      <p style="color:var(--text-muted)">The page you were looking for doesn't exist, or has moved.</p>
       <p>
-        <a href="{{ .Site.BaseURL }}">Back to home</a>
-        &nbsp;·&nbsp;
-        <a href="{{ .Site.BaseURL }}en/contact/">Contact us</a>
+        <a href="{{ .Site.BaseURL }}" class="btn btn-secondary">Back to home</a>
+        <a href="{{ .Site.BaseURL }}en/#contatti" class="btn btn-secondary">Contact me</a>
       </p>
       {{- end -}}
     </div>
-  </div>
-</section>
+  </section>
+</main>
+{{ partial "footer.html" . }}
 {{- end -}}

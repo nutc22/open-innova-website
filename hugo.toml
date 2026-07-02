@@ -1,6 +1,6 @@
-baseURL = "https://openinnova.it"
+baseURL = "https://daniele.nucciarelli.it"
 locale = "it"
-title = "Open Innova"
+title = "Daniele Nucciarelli"
 
 # Default language (Italian)
 defaultContentLanguage = "it"
@@ -12,14 +12,27 @@ enableEmoji = true
 # Pluralize titles
 pluralizeListTitles = false
 
-# Taxonomies disabled until needed (no content currently uses tags/categories)
+# Taxonomies disabled until needed
 disableKinds = ["taxonomy", "term"]
 
-# Output formats
+# Output formats — add Europass XML on the CV page (see [outputFormats.europass])
 [outputs]
-home = ["HTML", "RSS"]
+home = ["HTML"]
 page = ["HTML"]
-section = ["HTML", "RSS"]
+section = ["HTML"]
+
+# Custom output format: Europass-compatible XML export, rendered from CV data.
+[outputFormats]
+[outputFormats.europass]
+name = "europass"
+mediaType = "application/xml"
+baseName = "cv-europass"
+isPlainText = true
+rel = "alternate"
+
+[mediaTypes]
+[mediaTypes."application/xml"]
+suffixes = ["xml"]
 
 # Multilingual configuration
 [languages]
@@ -30,29 +43,29 @@ weight = 1
 contentDir = "content/it"
 
 [[languages.it.menu.main]]
-name = "Chi siamo"
-url = "/chi-siamo/"
+name = "Profilo"
+url = "/#profilo"
 weight = 1
-
 [[languages.it.menu.main]]
-name = "Prodotti"
-url = "/prodotti/"
+name = "Esperienze"
+url = "/#esperienze"
 weight = 2
-
 [[languages.it.menu.main]]
-name = "Consulenza"
-url = "/consulenza/"
+name = "Competenze"
+url = "/#competenze"
 weight = 3
-
 [[languages.it.menu.main]]
-name = "Open Innovation"
-url = "/open-innovation/"
+name = "Formazione"
+url = "/#formazione"
 weight = 4
-
+[[languages.it.menu.main]]
+name = "Oltre il lavoro"
+url = "/#altro"
+weight = 5
 [[languages.it.menu.main]]
 name = "Contatti"
-url = "/contatti/"
-weight = 5
+url = "/#contatti"
+weight = 6
 
 [languages.en]
 label = "English"
@@ -61,29 +74,29 @@ weight = 2
 contentDir = "content/en"
 
 [[languages.en.menu.main]]
-name = "About"
-url = "/en/about/"
+name = "Profile"
+url = "/en/#profilo"
 weight = 1
-
 [[languages.en.menu.main]]
-name = "Products"
-url = "/en/products/"
+name = "Experience"
+url = "/en/#esperienze"
 weight = 2
-
 [[languages.en.menu.main]]
-name = "Consulting"
-url = "/en/consulting/"
+name = "Skills"
+url = "/en/#competenze"
 weight = 3
-
 [[languages.en.menu.main]]
-name = "Open Innovation"
-url = "/en/open-innovation/"
+name = "Education"
+url = "/en/#formazione"
 weight = 4
-
+[[languages.en.menu.main]]
+name = "Beyond work"
+url = "/en/#altro"
+weight = 5
 [[languages.en.menu.main]]
 name = "Contact"
-url = "/en/contact/"
-weight = 5
+url = "/en/#contatti"
+weight = 6
 
 # Build settings
 [build]
@@ -93,11 +106,8 @@ writeStats = true
 [markup]
 [markup.goldmark]
 hardWraps = false
-
 [markup.goldmark.renderer]
 unsafe = true
-
-# Table of contents: only h2/h3, unordered
 [markup.tableOfContents]
 startLevel = 2
 endLevel = 3

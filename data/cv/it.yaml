@@ -1,0 +1,188 @@
+# =====================================================================
+# Contenuti reali del CV/portfolio — versione italiana.
+# Fonte: docs/esperienze.md. Voce: prima persona, sobria, tecnica.
+# Le sezioni "community" sono placeholder da rifinire con l'intervista.
+# =====================================================================
+
+hero:
+  badge: "Disponibile per nuove collaborazioni"
+  headline: "Fisico · Cloud & ML Engineer"
+  tagline: >-
+    Trasformo problemi complessi in infrastrutture affidabili e modelli che
+    reggono la produzione, con il rigore metodologico della fisica sperimentale.
+  cta_primary: "Contattami"
+  cta_secondary: "Vedi il CV"
+
+profilo:
+  eyebrow: "01 — Profilo"
+  title: "Dalla teoria al sistema in produzione"
+  paragraphs:
+    - >-
+      Sono un fisico di formazione che progetta e gestisce infrastrutture cloud e
+      sistemi di machine learning. Porto il metodo sperimentale — misurare, isolare
+      le variabili, iterare — dentro il ciclo di vita di piattaforme e modelli reali.
+    - >-
+      Lavoro ogni giorno con <strong>AWS e Kubernetes</strong>, costruisco pipeline
+      di dati e mi occupo di anomaly detection e di evaluation e red teaming di
+      agenti basati su LLM. Mi interessa l'affidabilità: osservabilità, contenimento
+      dei costi, riproducibilità.
+    - >-
+      Cerco sistemi essenziali: poche dipendenze, comportamento prevedibile,
+      documentazione onesta. Questo sito ne è un esempio — statico, senza cookie,
+      senza tracciamento.
+
+esperienze:
+  eyebrow: "02 — Esperienze"
+  title: "Esperienze professionali"
+  items:
+    - period: "2026 — oggi"
+      company: "Open Innova S.r.l."
+      url: "https://www.openinnova.it"
+      start: "2026-03"
+      location: "Perugia"
+      role: "Socio fondatore"
+      stack: ["Software", "Consulenza", "Coaching"]
+      bullets:
+        - "Produzione e distribuzione di software, consulenza gestionale e imprenditoriale."
+        - "Attività di career coaching e tutoraggio."
+    - period: "2025 — oggi"
+      company: "Red Lynx Robotics S.r.l."
+      start: "2025-06"
+      location: "Italia · Remote"
+      role: "Data Scientist"
+      stack: ["Python", "Dask", "Kubernetes", "Agent Evaluation", "LLM", "Computer Vision"]
+      bullets:
+        - "Analisi massiva di dati con Python e Dask."
+        - "Sviluppo di sistemi di anomaly detection in rete (progetti Watchman, Watchdog e Streamwatch)."
+        - "Agent evaluation: progettazione ed esecuzione di valutazioni di agenti AI, oltre ad attività di red teaming di sistemi basati su LLM."
+        - "Supporto alla gestione del cluster Kubernetes, in un contesto di AI su misura, computer vision e robotica avanzata."
+    - period: "2024 — oggi"
+      company: "Gestiscu"
+      url: "https://gestiscu.it"
+      start: "2024-03"
+      location: "Remote"
+      role: "Fondatore · Responsabile Infrastruttura, Networking & Security"
+      stack: ["AWS", "Kubernetes (kops)", "Docker", "Helm", "Django"]
+      bullets:
+        - "Gestiscu è un software gestionale SaaS multi-tenant basato su Django, che ho co-fondato."
+        - "Gestione end-to-end della piattaforma cloud AWS che lo ospita: orchestrazione con Docker, Kubernetes (kops) e Helm, networking e sicurezza."
+    - period: "2023 — oggi"
+      company: "scuacademy"
+      start: "2023-09"
+      location: "Remote"
+      role: "Gestione piattaforma e-learning"
+      stack: ["AWS", "EC2", "Route 53", "Moodle"]
+      bullets:
+        - "Amministrazione di circa 20 istanze Moodle su AWS per clienti diversi."
+        - "Provisioning di istanze EC2, configurazioni DNS, certificati TLS e audit dei costi."
+    - period: "2022 — oggi"
+      company: "Libero professionista"
+      start: "2022-07"
+      location: "Perugia"
+      role: "Sviluppatore di software applicativi"
+      stack: ["Python", "Django", "Linux"]
+      bullets:
+        - "Analisi, sviluppo e assistenza di gestionali per associazioni private."
+        - "Lavoro in team ridotti coprendo tutte le fasi: dalla scrittura del codice alla gestione dei server."
+
+competenze:
+  eyebrow: "03 — Competenze"
+  title: "Competenze tecniche"
+  groups:
+    - name: "Linguaggi"
+      skills:
+        - { name: "Python", level: "Avanzato" }
+        - { name: "C / C++", level: "Avanzato" }
+        - { name: "Bash", level: "Buono" }
+        - { name: "JavaScript", level: "Buono" }
+    - name: "Web & Sviluppo"
+      skills:
+        - { name: "Django", level: "Avanzato" }
+        - { name: "FastAPI", level: "Buono" }
+        - { name: "HTML", level: "Buono" }
+        - { name: "CSS", level: "Base" }
+    - name: "Cloud & DevOps"
+      skills:
+        - { name: "AWS", level: "Avanzato" }
+        - { name: "Kubernetes", level: "Avanzato" }
+        - { name: "Docker", level: "Avanzato" }
+        - { name: "Helm", level: "Avanzato" }
+        - { name: "Git", level: "Avanzato" }
+    - name: "Dati & Analisi"
+      skills:
+        - { name: "Pandas", level: "Avanzato" }
+        - { name: "PostgreSQL", level: "Buono" }
+        - { name: "MySQL", level: "Buono" }
+        - { name: "Redis", level: "Buono" }
+        - { name: "DuckDB", level: "Buono" }
+        - { name: "ROOT", level: "Buono" }
+    - name: "Sistemi & Strumenti"
+      skills:
+        - { name: "Linux", level: "Avanzato" }
+        - { name: "LaTeX", level: "Buono" }
+        - { name: "Markdown", level: "Avanzato" }
+
+formazione:
+  eyebrow: "04 — Formazione"
+  title: "Formazione"
+  items:
+    - year: "2022"
+      place: "Università di Perugia"
+      title: "Laurea in Scienze e tecnologie fisiche (L-30)"
+      detail: "102/110 — tesi «Perdite di massa in stelle AGB e loro indicatori osservativi» (relatore: Maurizio M. Busso)."
+    - year: "2016"
+      place: "Liceo Classico «A. Mariotti», Perugia"
+      title: "Maturità Classica"
+      detail: "96/100 — formazione umanistica e metodo logico-argomentativo."
+  masterclasses_label: "Masterclass & formazione"
+  masterclasses:
+    - "SOSC 23 — Fifth International School on Open Science Cloud (Perugia, 2023)"
+
+altro:
+  eyebrow: "05 — Oltre il lavoro"
+  title: "Progetti, talk & community"
+  cards:
+    - kind: "Progetto educativo"
+      title: "DesTEENazione"
+      desc: >-
+        Laboratorio di informatica con gli adolescenti dello spazio DesTEENazione
+        di Perugia: insieme ai ragazzi abbiamo progettato e realizzato un chatbot
+        Telegram con ricerca semantica.
+      url: "https://www.desteenazione.it/inaugurato-lo-spazio-desteenazione-a-perugia/"
+    - kind: "Conferenza"
+      title: "PyCon Italia 2026"
+      desc: >-
+        Partecipazione alla principale conferenza italiana su Python: ecosistema,
+        best practice e community.
+    - kind: "Sport"
+      title: "Allenatore di calcio a 5"
+      desc: >-
+        Ho allenato una squadra amatoriale della società Sentinelle del Mattino nel
+        campionato provinciale CSI: gestione del gruppo, allenamenti e partite.
+    - kind: "Volontariato"
+      title: "Animatore — Oratorio Sentinelle, San Sisto"
+      desc: >-
+        Animatore dai 15 anni a oggi, con ruoli di coordinamento delle attività e
+        degli altri animatori: campi estivi e gruppi di ragazzi.
+    - kind: "Community"
+      title: "SetteValley Community AI"
+      desc: >-
+        Membro attivo della community locale dedicata all'intelligenza artificiale:
+        incontri, confronto tecnico e divulgazione sul territorio.
+
+contatti:
+  eyebrow: "06 — Contatti"
+  title: "Parliamo di un progetto"
+  body: >-
+    Cloud, infrastrutture, MLOps, data pipeline o consulenza R&D.
+    Scrivimi due righe: rispondo a tutte le mail.
+
+cv:
+  profile_summary: >-
+    Fisico di formazione e ingegnere cloud/ML. Porto il metodo sperimentale nel
+    ciclo di vita di piattaforme cloud e sistemi di machine learning: misuro, isolo
+    le variabili, itero. Specializzato in infrastrutture su AWS/Kubernetes, pipeline
+    di dati e analisi avanzata.
+  languages_label: "Lingue"
+  languages: "Italiano (madrelingua) · Inglese (B1)"
+  updated: "giugno 2026"

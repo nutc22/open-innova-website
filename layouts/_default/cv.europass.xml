@@ -1,0 +1,109 @@
+{{- /* Europass CV XML (SkillsPassport v3.x) rendered from data/cv/<lang>.yaml.
+       Importable in the Europass editor; best-effort mapping of the schema. */ -}}
+{{- $cv := index hugo.Data.cv .Language.Lang -}}
+{{- $p := hugo.Data.profile -}}
+{{- $isIt := eq .Language.Lang "it" -}}
+<?xml version="1.0" encoding="UTF-8"?>
+<SkillsPassport xmlns="http://europass.cedefop.europa.eu/Europass" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" locale="{{ .Language.Lang }}" xsi:schemaLocation="http://europass.cedefop.europa.eu/Europass http://europass.cedefop.europa.eu/xml/v3.3.0/EuropassSchema.xsd">
+  <DocumentInfo>
+    <DocumentType>ECV</DocumentType>
+    <CreationDate>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</CreationDate>
+    <LastUpdateDate>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</LastUpdateDate>
+    <XSDVersion>V3.3</XSDVersion>
+    <Generator>hugo</Generator>
+    <Comment>{{ $p.url }}</Comment>
+  </DocumentInfo>
+  <LearnerInfo>
+    <Identification>
+      <PersonName>
+        <FirstName>Daniele</FirstName>
+        <Surname>Nucciarelli</Surname>
+      </PersonName>
+      <ContactInfo>
+        <Address>
+          <Contact>
+            <Municipality>Perugia</Municipality>
+            <Country><Code>IT</Code><Label>{{ if $isIt }}Italia{{ else }}Italy{{ end }}</Label></Country>
+          </Contact>
+        </Address>
+        <Email><Contact>{{ $p.email }}</Contact></Email>
+        <Website><Contact>{{ $p.url }}</Contact></Website>
+      </ContactInfo>
+      {{- /* No Demographics on purpose: birth date and similar personal data
+             stay out of the public export (GDPR data minimization). */}}
+    </Identification>
+    <Headline>
+      <Type><Code>preferred_job</Code><Label>{{ if $isIt }}Posizione ricercata{{ else }}Preferred job{{ end }}</Label></Type>
+      <Description><Label>{{ $cv.hero.headline | htmlEscape }}</Label></Description>
+    </Headline>
+    <WorkExperienceList>
+      {{- range $cv.esperienze.items }}
+      {{- $y := index (split .start "-") 0 }}
+      {{- $m := index (split .start "-") 1 }}
+      <WorkExperience>
+        <Period>
+          <From year="{{ $y }}" month="--{{ $m }}"/>
+          <Current>true</Current>
+        </Period>
+        <Position><Label>{{ .role | htmlEscape }}</Label></Position>
+        <Activities>{{ delimit .bullets " " | htmlEscape }}</Activities>
+        <Employer>
+          <Name>{{ .company | htmlEscape }}</Name>
+          <ContactInfo>
+            <Address><Contact><Municipality>{{ .location | htmlEscape }}</Municipality><Country><Code>IT</Code><Label>{{ if $isIt }}Italia{{ else }}Italy{{ end }}</Label></Country></Contact></Address>
+          </ContactInfo>
+        </Employer>
+      </WorkExperience>
+      {{- end }}
+    </WorkExperienceList>
+    <EducationList>
+      {{- range $cv.formazione.items }}
+      <Education>
+        <Period>
+          <To year="{{ .year }}"/>
+        </Period>
+        <Title>{{ .title | htmlEscape }}</Title>
+        <Activities>{{ .detail | htmlEscape }}</Activities>
+        <Organisation>
+          <Name>{{ .place | htmlEscape }}</Name>
+          <ContactInfo>
+            <Address><Contact><Municipality>Perugia</Municipality><Country><Code>IT</Code><Label>{{ if $isIt }}Italia{{ else }}Italy{{ end }}</Label></Country></Contact></Address>
+          </ContactInfo>
+        </Organisation>
+      </Education>
+      {{- end }}
+    </EducationList>
+    <Skills>
+      <Linguistic>
+        <MotherTongueList>
+          <MotherTongue>
+            <Description><Code>it</Code><Label>{{ if $isIt }}Italiano{{ else }}Italian{{ end }}</Label></Description>
+          </MotherTongue>
+        </MotherTongueList>
+        <ForeignLanguageList>
+          <ForeignLanguage>
+            <Description><Code>en</Code><Label>{{ if $isIt }}Inglese{{ else }}English{{ end }}</Label></Description>
+            <ProficiencyLevel>
+              <Listening>B1</Listening>
+              <Reading>B1</Reading>
+              <SpokenInteraction>B1</SpokenInteraction>
+              <SpokenProduction>B1</SpokenProduction>
+              <Writing>B1</Writing>
+            </ProficiencyLevel>
+          </ForeignLanguage>
+        </ForeignLanguageList>
+      </Linguistic>
+      <Computer>
+        <Description>
+          {{- $parts := slice -}}
+          {{- range $cv.competenze.groups -}}
+            {{- $names := slice -}}
+            {{- range .skills }}{{ $names = $names | append .name }}{{ end -}}
+            {{- $parts = $parts | append (printf "%s: %s." .name (delimit $names ", ")) -}}
+          {{- end -}}
+          {{ delimit $parts " " | htmlEscape }}
+        </Description>
+      </Computer>
+    </Skills>
+  </LearnerInfo>
+</SkillsPassport>
