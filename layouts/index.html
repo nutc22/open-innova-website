@@ -7,7 +7,9 @@
 {{ partial "nav.html" . }}
 
 {{- with resources.Get "images/bg-deco.png" }}
-<div class="bg-deco" aria-hidden="true"><img src="{{ .RelPermalink }}" alt="" loading="lazy"></div>
+{{- $bg := . }}
+{{- if ge .Width 1100 }}{{ $bg = .Resize "1000x webp q80 Lanczos" }}{{ end }}
+<div class="bg-deco" aria-hidden="true"><img src="{{ $bg.RelPermalink }}" width="{{ $bg.Width }}" height="{{ $bg.Height }}" alt="" loading="lazy"></div>
 {{- end }}
 
 <main id="main-content">
