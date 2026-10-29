@@ -11,6 +11,7 @@
   {{- with .OutputFormats.Get "europass" }}
   <a href="{{ .RelPermalink }}" download>Europass XML</a>
   {{- end }}
+  <a href="{{ cond $isIt (printf "%sprivacy/" .Site.BaseURL) (printf "%sen/privacy/" .Site.BaseURL) }}">Privacy</a>
   <button type="button" class="cv-print-btn" data-print>{{ if $isIt }}Stampa / Salva PDF{{ else }}Print / Save PDF{{ end }}</button>
 </div>
 

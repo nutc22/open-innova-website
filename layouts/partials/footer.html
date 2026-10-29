@@ -1,15 +1,23 @@
 {{- $isIt := eq .Language.Lang "it" -}}
 {{- $base := .Site.BaseURL -}}
+{{- $p := hugo.Data.profile -}}
 {{- $cvURL := cond $isIt (printf "%scv/" $base) (printf "%sen/cv/" $base) -}}
 {{- $trURL := cond $isIt (printf "%strasparenza/" $base) (printf "%sen/transparency/" $base) -}}
+{{- $prURL := cond $isIt (printf "%sprivacy/" $base) (printf "%sen/privacy/" $base) -}}
 {{- $home := cond $isIt $base (printf "%sen/" $base) -}}
 <footer class="footer">
   <div class="container footer-container">
-    <p class="footer-copyright">
-      &copy; {{ now.Format "2006" }} {{ hugo.Data.profile.name }} —
-      {{ if $isIt }}Sito statico, generato con Hugo. Nessun cookie, nessun tracciamento.{{ else }}Static site, built with Hugo. No cookies, no tracking.{{ end }}
-    </p>
+    <div class="footer-legal">
+      <p class="footer-copyright">
+        &copy; {{ now.Format "2006" }} {{ $p.name }} —
+        {{ if $isIt }}Sito statico, generato con Hugo. Nessun cookie, nessun tracciamento.{{ else }}Static site, built with Hugo. No cookies, no tracking.{{ end }}
+      </p>
+      {{- with $p.vat_id }}
+      <p class="footer-copyright">{{ if $isIt }}P.IVA {{ . }}{{ else }}VAT IT{{ . }}{{ end }} · {{ $p.city }}</p>
+      {{- end }}
+    </div>
     <div class="footer-links">
+      <a href="{{ $prURL }}">Privacy</a>
       <a href="{{ $trURL }}">{{ if $isIt }}Trasparenza{{ else }}Transparency{{ end }}</a>
       <a href="{{ $cvURL }}">CV</a>
       <a href="{{ $home }}#top">{{ if $isIt }}Torna su ↑{{ else }}Back to top ↑{{ end }}</a>

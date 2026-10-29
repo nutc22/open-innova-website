@@ -27,6 +27,7 @@
       <li data-mark="›">HTML, CSS e un po' di JavaScript per le interazioni, senza framework.</li>
       <li data-mark="›">Font di sistema del dispositivo: niente font scaricati da CDN esterne.</li>
       <li data-mark="›">Hosting statico con distribuzione dei contenuti tramite la CDN del fornitore. Codice e template versionati con Git.</li>
+      <li data-mark="›">Quali dati vengono comunque trattati, per esempio dal servizio di hosting, è spiegato nell'<a href="{{ .Site.BaseURL }}privacy/">informativa privacy</a>.</li>
     </ul>
   </section>
 
@@ -56,7 +57,7 @@
   {{- else }}
   <p class="eyebrow">Transparency</p>
   <h1>How this site is built</h1>
-  <p class="lead">No cookies. No tracking. No consent request, because there is nothing to consent to. This page explains how the site is built and what I chose <em>not</em> to use.</p>
+  <p class="lead">Even a personal site says something about how you work. For this one, I chose static pages, system fonts and few dependencies. No cookies, analytics or tracking tools.</p>
 
   <div class="stats">
     <div class="stat"><p class="stat__value">0</p><p class="stat__label">cookies and trackers</p></div>
@@ -67,35 +68,36 @@
   <section>
     <h2>How it's built</h2>
     <ul class="tlist">
-      <li data-mark="›">Fully static site: no database, no runtime logic. Pages are generated at build time with Hugo.</li>
-      <li data-mark="›">Just HTML and CSS, with a handful of vanilla JavaScript. No framework.</li>
-      <li data-mark="›">The device's system fonts: no fonts downloaded from external CDNs.</li>
-      <li data-mark="›">Static hosting with the provider's CDN cache. Code and templates versioned in Git.</li>
+      <li data-mark="›">Pages are generated with Hugo and served as static files, with no database or server-side application processing.</li>
+      <li data-mark="›">HTML, CSS and a little JavaScript for interactions, without a framework.</li>
+      <li data-mark="›">Your device's system fonts, with no fonts downloaded from external CDNs.</li>
+      <li data-mark="›">Static hosting, with content delivered through the hosting provider's CDN. Code and templates are version-controlled with Git.</li>
+      <li data-mark="›">The <a href="{{ .Site.BaseURL }}en/privacy/">privacy notice</a> explains what data is processed, including by the hosting provider.</li>
     </ul>
   </section>
 
   <section>
     <h2>What I chose not to do</h2>
     <ul class="tlist">
-      <li data-mark="×">No cookies of any kind: neither tracking nor profiling.</li>
-      <li data-mark="×">No analytics: I don't know who you are, where you came from or what you open — and I don't want to.</li>
-      <li data-mark="×">No consent popups: not needed when no data is collected.</li>
-      <li data-mark="×">No Google fonts, no third-party embeds, no chatbots.</li>
-      <li data-mark="×">No localStorage: even dark mode follows your operating system setting.</li>
+      <li data-mark="×">The site doesn't set cookies.</li>
+      <li data-mark="×">It doesn't include analytics tools or third-party trackers.</li>
+      <li data-mark="×">It doesn't display cookie consent banners.</li>
+      <li data-mark="×">It doesn't load Google Fonts, third-party embeds or chatbots.</li>
+      <li data-mark="×">It doesn't use localStorage: dark mode follows your operating system's preferences.</li>
     </ul>
   </section>
 
   <section>
     <h2>Why I build it this way</h2>
     <ul class="tlist">
-      <li data-mark="›">There's a direct link between technical minimalism, privacy and low environmental impact: the same goal seen from different angles.</li>
-      <li data-mark="›">It's the same principle I apply when designing systems: build what's needed, and nothing more.</li>
+      <li data-mark="›">Fewer resources to download and fewer dependencies to maintain: keeping things simple has practical benefits, even on a project this small.</li>
+      <li data-mark="›">I follow the same principle when designing systems: build what's needed and keep it simple.</li>
     </ul>
   </section>
 
   <div class="callout">
-    <p style="font-weight:600">Spotted something I could still remove?</p>
-    <p style="color:var(--text-muted)">Email me at <a href="mailto:{{ hugo.Data.profile.email }}">{{ hugo.Data.profile.email }}</a>. Criticism about minimalism is welcome.</p>
+    <p style="font-weight:600">Have an idea for making it better?</p>
+    <p style="color:var(--text-muted)">Email me at <a href="mailto:{{ hugo.Data.profile.email }}">{{ hugo.Data.profile.email }}</a>. I'd like to hear about the details I may have missed, too.</p>
   </div>
   {{- end }}
 </main>

@@ -2,6 +2,10 @@ baseURL = "https://daniele.nucciarelli.it"
 locale = "it"
 title = "Daniele Nucciarelli"
 
+# Front matter dates without a zone (e.g. lastmod: 2026-10-30) are Rome time:
+# in UTC they would count as "future" until 01:00/02:00 and the page would be skipped.
+timeZone = "Europe/Rome"
+
 # Default language (Italian)
 defaultContentLanguage = "it"
 defaultContentLanguageInSubdir = false

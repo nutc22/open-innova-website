@@ -38,14 +38,14 @@
       {{- if eq .Language.Lang "it" -}}
       Questo sito non imposta cookie e non integra strumenti di analytics né tracker di terze parti. Anche il tema scuro segue le preferenze del tuo dispositivo, senza salvarle nel browser.
       {{- else -}}
-      No cookies, no analytics, no tracking. I don't know who you are, where you came from or what you open — and I don't want to. Your visit is completely anonymous.
+      This site doesn't set cookies or include analytics tools or third-party trackers. Dark mode follows your device's preferences without storing those preferences in your browser.
       {{- end -}}
     </p>
     <p class="cookie-modal__body">
       {{- if eq .Language.Lang "it" -}}
-      Vuoi i dettagli? Leggi la pagina <a href="{{ .Site.BaseURL }}trasparenza/">Trasparenza</a>.
+      Vuoi i dettagli? Leggi le pagine <a href="{{ .Site.BaseURL }}trasparenza/">Trasparenza</a> e <a href="{{ .Site.BaseURL }}privacy/">Privacy</a>.
       {{- else -}}
-      Want the details? Read the <a href="{{ .Site.BaseURL }}en/transparency/">Transparency</a> page.
+      Want the details? Read the <a href="{{ .Site.BaseURL }}en/transparency/">Transparency</a> and <a href="{{ .Site.BaseURL }}en/privacy/">Privacy</a> pages.
       {{- end -}}
     </p>
   </dialog>
