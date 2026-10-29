@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Open Innova Website Deployment Script
+# daniele.nucciarelli.it Deployment Script
 # Builds the site with Hugo and deploys to AWS S3
 # Usage: ./scripts/deploy.sh [staging|production]
 # Default: staging (safer for testing)
@@ -8,10 +8,11 @@
 set -e  # Exit on error
 
 # Configuration
-BUCKET_NAME="${S3_BUCKET_NAME:-openinnova-website}"
+BUCKET_NAME="${S3_BUCKET_NAME:-daniele-nucciarelli-it}"
 BUCKET_REGION="${S3_BUCKET_REGION:-eu-south-1}"
 ENVIRONMENT="${1:-production}"
-CF_DISTRIBUTION_ID="${CF_DISTRIBUTION_ID:-E2IUEDFNFT7LLX}"
+CF_DISTRIBUTION_ID="${CF_DISTRIBUTION_ID:-}"
+HUGO="${HUGO_BIN:-hugo}"
 
 # Colors for output
 RED='\033[0;31m'
@@ -37,8 +38,8 @@ check_prerequisites() {
   log_info "Checking prerequisites..."
 
   # Check if Hugo is installed
-  if ! command -v hugo &> /dev/null; then
-    log_error "Hugo is not installed. Install from https://gohugo.io/"
+  if ! command -v "$HUGO" &> /dev/null; then
+    log_error "Hugo is not installed (or set HUGO_BIN). Install from https://gohugo.io/"
     exit 1
   fi
 
@@ -61,7 +62,8 @@ check_prerequisites() {
 build_site() {
   log_info "Building site with Hugo..."
 
-  if hugo; then
+  # --cleanDestinationDir: drop stale files from earlier builds so they never get uploaded
+  if "$HUGO" --gc --cleanDestinationDir; then
     log_info "Build successful"
   else
     log_error "Build failed. Check Hugo errors above."
@@ -111,6 +113,7 @@ deploy_to_s3() {
   aws s3 sync public/ "s3://$BUCKET_NAME/" \
     --delete \
     --cache-control "public, max-age=31536000, immutable" \
+    --exclude ".DS_Store" \
     --exclude "*.html" \
     --exclude "*.xml" \
     --exclude "robots.txt" \
@@ -164,8 +167,8 @@ invalidate_cloudfront() {
 
 # Main flow
 main() {
-  echo "Open Innova Website Deployment"
-  echo "=============================="
+  echo "daniele.nucciarelli.it Deployment"
+  echo "================================="
   echo "Environment: $ENVIRONMENT"
   echo "Bucket:      $BUCKET_NAME ($BUCKET_REGION)"
   if [ -n "$CF_DISTRIBUTION_ID" ]; then
@@ -193,8 +196,7 @@ main() {
   log_info "Deployment complete."
   echo
   echo "Website is live at:"
-  echo "  S3 endpoint:    http://$BUCKET_NAME.s3-website.$BUCKET_REGION.amazonaws.com"
-  echo "  Custom domain:  https://openinnova.it"
+  echo "  https://daniele.nucciarelli.it"
   echo
 }
 
