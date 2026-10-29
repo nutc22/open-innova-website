@@ -1,6 +1,6 @@
 ---
 title: "Transparency"
-description: "How this site is built: no cookies, no tracking, no external CDN requests. Static by choice."
+description: "How I built this site with Hugo: static pages, system fonts and few dependencies. No cookies, analytics or third-party trackers."
 layout: trasparenza
 translationKey: transparency
 ---

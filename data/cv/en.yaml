@@ -1,34 +1,37 @@
 # =====================================================================
-# CV/portfolio content — English version (draft, to be reviewed).
-# Source: docs/esperienze.md. Voice: first person, sober, technical.
-# "community" cards are placeholders to refine after the interview.
+# CV/portfolio content — English version.
+# Voice: first person, concrete and personal. Creativity and scientific thinking.
 # =====================================================================
 
 hero:
-  badge: "Available for new collaborations"
+  badge: "Open to new collaborations"
   headline: "Physicist · Cloud & ML Engineer"
   tagline: >-
-    I turn complex problems into reliable infrastructure and models that hold up
-    in production, with the methodological rigour of experimental physics.
+    Curiosity sparks ideas. A scientific approach puts them to the test.
+    I design cloud infrastructure and machine learning systems,
+    combining creative thinking with careful experimentation.
   cta_primary: "Get in touch"
   cta_secondary: "View CV"
 
 profilo:
   eyebrow: "01 — Profile"
-  title: "From theory to production systems"
+  title: "Imagine. Build. Test."
   paragraphs:
     - >-
-      I am a physicist by training who designs and runs cloud infrastructure and
-      machine learning systems. I bring the experimental method — measure, isolate
-      the variables, iterate — into the life cycle of real platforms and models.
+      I'm a physicist by training, working across <strong>cloud infrastructure,
+      software and machine learning</strong>. Creativity is part of how I work:
+      making connections, changing perspective and exploring possible solutions.
+      Then I build, measure and put those ideas to the test.
     - >-
-      I work daily with <strong>AWS and Kubernetes</strong>, build data pipelines,
-      and handle anomaly detection along with evaluation and red teaming of
-      LLM-based agents. I care about reliability: observability, cost control,
-      reproducibility.
+      I manage cloud platforms with <strong>Kubernetes</strong>, build data
+      pipelines and develop anomaly detection systems. I also evaluate LLM-based
+      agents and carry out red teaming, testing their behaviour to uncover
+      limitations and vulnerabilities.
     - >-
-      I look for essential systems: few dependencies, predictable behaviour, honest
-      documentation. This site is an example — static, no cookies, no tracking.
+      I aim for systems that are easy to understand, monitor and improve over
+      time: few dependencies, costs under control and clear documentation.
+      This site follows the same thinking: a simple, static site with no cookies
+      or tracking tools.
 
 esperienze:
   eyebrow: "02 — Experience"
@@ -42,8 +45,8 @@ esperienze:
       role: "Founding partner"
       stack: ["Software", "Consulting", "Coaching"]
       bullets:
-        - "Software production and distribution, management and business consulting."
-        - "Career coaching and tutoring."
+        - "Software development and distribution; management and business consulting."
+        - "Career guidance and tutoring."
     - period: "2025 — present"
       company: "Red Lynx Robotics S.r.l."
       start: "2025-06"
@@ -52,49 +55,49 @@ esperienze:
       stack: ["Python", "Dask", "Kubernetes", "Agent Evaluation", "LLM", "Computer Vision"]
       bullets:
         - "Large-scale data analysis with Python and Dask."
-        - "Development of network anomaly-detection systems (Watchman, Watchdog and Streamwatch projects)."
-        - "Agent evaluation: designing and running evaluations of AI agents, plus red teaming of LLM-based systems."
-        - "Support for Kubernetes cluster management, within a context of bespoke AI, computer vision and advanced robotics."
+        - "Development of network anomaly detection systems (Watchman, Watchdog and Streamwatch projects)."
+        - "Design and execution of AI agent evaluations and red teaming of LLM-based systems."
+        - "Support for Kubernetes cluster management on projects involving custom AI systems, computer vision and advanced robotics."
     - period: "2024 — present"
-      company: "Gestiscu"
+      company: "GestiSCU"
       url: "https://gestiscu.it"
       start: "2024-03"
       location: "Remote"
-      role: "Founder · Head of Infrastructure, Networking & Security"
-      stack: ["AWS", "Kubernetes (kops)", "Docker", "Helm", "Django"]
+      role: "Co-founder · Head of Infrastructure, Networking & Security"
+      stack: ["Kubernetes (kops)", "Docker", "Helm", "Django"]
       bullets:
-        - "Gestiscu is a multi-tenant Django-based SaaS management software that I co-founded."
-        - "End-to-end management of the AWS cloud platform hosting it: orchestration with Docker, Kubernetes (kops) and Helm, networking and security."
+        - "I co-founded GestiSCU, a multi-tenant SaaS management platform built with Django."
+        - "Cloud platform management: containerisation with Docker, orchestration with Kubernetes (kops), deployment with Helm, networking and security."
     - period: "2023 — present"
       company: "scuacademy"
       start: "2023-09"
       location: "Remote"
-      role: "E-learning platform management"
-      stack: ["AWS", "EC2", "Route 53", "Moodle"]
+      role: "E-learning Platform Administrator"
+      stack: ["Cloud", "DNS", "TLS", "Moodle"]
       bullets:
-        - "Administration of around 20 Moodle instances on AWS for different clients."
-        - "EC2 provisioning, DNS configuration, TLS certificates and cost auditing."
+        - "Administration of around 20 cloud-hosted Moodle instances for multiple clients."
+        - "Virtual server provisioning and configuration, DNS and TLS certificate management, and cost analysis."
     - period: "2022 — present"
       company: "Self-employed"
       start: "2022-07"
       location: "Perugia, IT"
-      role: "Application software developer"
+      role: "Software Developer"
       stack: ["Python", "Django", "Linux"]
       bullets:
-        - "Analysis, development and support of management software for private associations."
-        - "Working in small teams across every phase: from writing code to running the servers."
+        - "Requirements analysis, development and support for management software used by private associations."
+        - "Work in small teams across the full development lifecycle, from writing code to managing servers."
 
 competenze:
   eyebrow: "03 — Skills"
   title: "Technical skills"
   groups:
-    - name: "Languages"
+    - name: "Programming languages"
       skills:
         - { name: "Python", level: "Advanced" }
         - { name: "C / C++", level: "Advanced" }
         - { name: "Bash", level: "Good" }
         - { name: "JavaScript", level: "Good" }
-    - name: "Web & Development"
+    - name: "Web development"
       skills:
         - { name: "Django", level: "Advanced" }
         - { name: "FastAPI", level: "Good" }
@@ -102,7 +105,6 @@ competenze:
         - { name: "CSS", level: "Basic" }
     - name: "Cloud & DevOps"
       skills:
-        - { name: "AWS", level: "Advanced" }
         - { name: "Kubernetes", level: "Advanced" }
         - { name: "Docker", level: "Advanced" }
         - { name: "Helm", level: "Advanced" }
@@ -128,60 +130,61 @@ formazione:
     - year: "2022"
       place: "University of Perugia"
       title: "BSc in Physical Sciences and Technologies (L-30)"
-      detail: "102/110 — thesis “Mass loss in AGB stars and its observational indicators” (advisor: Maurizio M. Busso)."
+      detail: "102/110 — thesis: “Mass loss in AGB stars and its observational indicators” (supervisor: Maurizio M. Busso)."
     - year: "2016"
       place: "Liceo Classico “A. Mariotti”, Perugia"
-      title: "Classical High School Diploma"
-      detail: "96/100 — humanities education and logical-argumentative method."
-  masterclasses_label: "Masterclasses & training"
+      title: "Secondary School Diploma in Classical Studies"
+      detail: "96/100 — a grounding in the humanities, logical reasoning and argumentation."
+  masterclasses_label: "Further training"
   masterclasses:
     - "SOSC 23 — Fifth International School on Open Science Cloud (Perugia, 2023)"
 
 altro:
   eyebrow: "05 — Beyond work"
-  title: "Projects, talks & community"
+  title: "Ideas and people, beyond the code"
   cards:
     - kind: "Educational project"
       title: "DesTEENazione"
       desc: >-
-        Computer-science workshop with the teenagers of the DesTEENazione space in
-        Perugia: together we designed and built a Telegram chatbot with semantic
+        A computing workshop with teenagers at the DesTEENazione youth centre in
+        Perugia. Together, we designed and built a Telegram chatbot with semantic
         search.
       url: "https://www.desteenazione.it/inaugurato-lo-spazio-desteenazione-a-perugia/"
     - kind: "Conference"
       title: "PyCon Italia 2026"
       desc: >-
-        Attended Italy's main Python conference: ecosystem, best practices and
-        community.
+        Attended PyCon Italia to keep up with developments in Python and exchange
+        ideas with the community.
     - kind: "Sport"
       title: "Futsal coach"
       desc: >-
-        Coached an amateur five-a-side team of the Sentinelle del Mattino club in
-        the provincial CSI league: group management, training sessions and matches.
+        Coached an amateur futsal team at Sentinelle del Mattino in the local CSI
+        league, leading training sessions and managing the team on match days.
     - kind: "Volunteering"
       title: "Youth leader — Oratorio Sentinelle, San Sisto"
       desc: >-
-        Youth leader since the age of 15, now also coordinating activities and
-        fellow leaders: summer camps and youth groups.
+        I've volunteered as a youth leader since I was 15, with responsibilities
+        that include coordinating fellow volunteers, summer camps and youth groups.
     - kind: "Community"
       title: "SetteValley Community AI"
       desc: >-
-        Active member of the local community dedicated to artificial intelligence:
-        meetups, technical discussion and outreach.
+        An active member of a local AI community, taking part in meetups,
+        technical discussions and public outreach.
 
 contatti:
   eyebrow: "06 — Contact"
-  title: "Let's talk about a project"
+  title: "What could we build together?"
   body: >-
-    Cloud, infrastructure, MLOps, data pipelines or R&D consulting.
-    Drop me a line: I reply to every email.
+    Infrastructure to rethink, data to explore, an idea to put to the test.
+    Tell me what you have in mind, and we can work out where to start.
 
 cv:
   profile_summary: >-
-    Physicist by training and cloud/ML engineer. I bring the experimental method
-    into the life cycle of cloud platforms and machine learning systems: measure,
-    isolate the variables, iterate. Specialised in AWS/Kubernetes infrastructure,
-    data pipelines and advanced analysis.
+    Physicist by training and Cloud & ML Engineer. I combine creative thinking
+    with the experimental method to design cloud infrastructure, data pipelines
+    and machine learning systems. My work spans Kubernetes, data analysis and
+    LLM-based agent evaluation, from exploring ideas to testing how they work
+    in practice.
   languages_label: "Languages"
   languages: "Italian (native) · English (B1)"
   updated: "June 2026"
