@@ -1,35 +1,37 @@
 # =====================================================================
 # Contenuti reali del CV/portfolio — versione italiana.
-# Fonte: docs/esperienze.md. Voce: prima persona, sobria, tecnica.
-# Le sezioni "community" sono placeholder da rifinire con l'intervista.
+# Voce: prima persona, concreta e personale. Creatività e metodo scientifico.
 # =====================================================================
 
 hero:
   badge: "Disponibile per nuove collaborazioni"
   headline: "Fisico · Cloud & ML Engineer"
   tagline: >-
-    Trasformo problemi complessi in infrastrutture affidabili e modelli che
-    reggono la produzione, con il rigore metodologico della fisica sperimentale.
+    La curiosità apre strade. Il metodo aiuta a percorrerle.
+    Progetto infrastrutture cloud e sistemi di machine learning,
+    con la creatività di chi esplora e il rigore di chi verifica.
   cta_primary: "Contattami"
   cta_secondary: "Vedi il CV"
 
 profilo:
   eyebrow: "01 — Profilo"
-  title: "Dalla teoria al sistema in produzione"
+  title: "Immaginare, costruire, mettere alla prova"
   paragraphs:
     - >-
-      Sono un fisico di formazione che progetta e gestisce infrastrutture cloud e
-      sistemi di machine learning. Porto il metodo sperimentale — misurare, isolare
-      le variabili, iterare — dentro il ciclo di vita di piattaforme e modelli reali.
+      Sono un fisico di formazione e lavoro tra <strong>infrastrutture cloud,
+      software e machine learning</strong>. La creatività è parte del mio metodo:
+      cercare collegamenti, cambiare prospettiva e immaginare soluzioni.
+      Poi costruisco, misuro e metto alla prova le idee.
     - >-
-      Lavoro ogni giorno con <strong>AWS e Kubernetes</strong>, costruisco pipeline
-      di dati e mi occupo di anomaly detection e di evaluation e red teaming di
-      agenti basati su LLM. Mi interessa l'affidabilità: osservabilità, contenimento
-      dei costi, riproducibilità.
+      Gestisco piattaforme cloud con <strong>Kubernetes</strong>, costruisco pipeline
+      di dati e sviluppo sistemi di rilevamento delle anomalie. Mi occupo anche di
+      valutazione di agenti basati su LLM e red teaming: ne metto alla prova il
+      comportamento per individuare limiti e vulnerabilità.
     - >-
-      Cerco sistemi essenziali: poche dipendenze, comportamento prevedibile,
-      documentazione onesta. Questo sito ne è un esempio — statico, senza cookie,
-      senza tracciamento.
+      Cerco soluzioni che si possano capire, osservare e migliorare nel tempo:
+      poche dipendenze, costi sotto controllo e documentazione chiara.
+      Anche questo sito segue la stessa idea: essenziale, statico, senza cookie
+      e senza strumenti di tracciamento.
 
 esperienze:
   eyebrow: "02 — Esperienze"
@@ -44,37 +46,37 @@ esperienze:
       stack: ["Software", "Consulenza", "Coaching"]
       bullets:
         - "Produzione e distribuzione di software, consulenza gestionale e imprenditoriale."
-        - "Attività di career coaching e tutoraggio."
+        - "Orientamento professionale e tutoraggio."
     - period: "2025 — oggi"
       company: "Red Lynx Robotics S.r.l."
       start: "2025-06"
-      location: "Italia · Remote"
+      location: "Italia · Da remoto"
       role: "Data Scientist"
       stack: ["Python", "Dask", "Kubernetes", "Agent Evaluation", "LLM", "Computer Vision"]
       bullets:
-        - "Analisi massiva di dati con Python e Dask."
-        - "Sviluppo di sistemi di anomaly detection in rete (progetti Watchman, Watchdog e Streamwatch)."
-        - "Agent evaluation: progettazione ed esecuzione di valutazioni di agenti AI, oltre ad attività di red teaming di sistemi basati su LLM."
+        - "Analisi di grandi volumi di dati con Python e Dask."
+        - "Sviluppo di sistemi per il rilevamento di anomalie di rete (progetti Watchman, Watchdog e Streamwatch)."
+        - "Progettazione ed esecuzione di valutazioni di agenti di intelligenza artificiale e attività di red teaming su sistemi basati su LLM."
         - "Supporto alla gestione del cluster Kubernetes, in un contesto di AI su misura, computer vision e robotica avanzata."
     - period: "2024 — oggi"
-      company: "Gestiscu"
+      company: "GestiSCU"
       url: "https://gestiscu.it"
       start: "2024-03"
-      location: "Remote"
-      role: "Fondatore · Responsabile Infrastruttura, Networking & Security"
-      stack: ["AWS", "Kubernetes (kops)", "Docker", "Helm", "Django"]
+      location: "Da remoto"
+      role: "Cofondatore · Responsabile infrastruttura, reti e sicurezza"
+      stack: ["Kubernetes (kops)", "Docker", "Helm", "Django"]
       bullets:
-        - "Gestiscu è un software gestionale SaaS multi-tenant basato su Django, che ho co-fondato."
-        - "Gestione end-to-end della piattaforma cloud AWS che lo ospita: orchestrazione con Docker, Kubernetes (kops) e Helm, networking e sicurezza."
+        - "Ho cofondato GestiSCU, un software gestionale SaaS multi-tenant basato su Django."
+        - "Gestione della piattaforma cloud: applicazioni in container con Docker, orchestrazione con Kubernetes (kops), distribuzione con Helm, reti e sicurezza."
     - period: "2023 — oggi"
       company: "scuacademy"
       start: "2023-09"
-      location: "Remote"
+      location: "Da remoto"
       role: "Gestione piattaforma e-learning"
-      stack: ["AWS", "EC2", "Route 53", "Moodle"]
+      stack: ["Cloud", "DNS", "TLS", "Moodle"]
       bullets:
-        - "Amministrazione di circa 20 istanze Moodle su AWS per clienti diversi."
-        - "Provisioning di istanze EC2, configurazioni DNS, certificati TLS e audit dei costi."
+        - "Amministrazione di circa 20 istanze Moodle in cloud per clienti diversi."
+        - "Creazione e configurazione di server virtuali, gestione DNS e certificati TLS, analisi dei costi."
     - period: "2022 — oggi"
       company: "Libero professionista"
       start: "2022-07"
@@ -95,20 +97,19 @@ competenze:
         - { name: "C / C++", level: "Avanzato" }
         - { name: "Bash", level: "Buono" }
         - { name: "JavaScript", level: "Buono" }
-    - name: "Web & Sviluppo"
+    - name: "Sviluppo web"
       skills:
         - { name: "Django", level: "Avanzato" }
         - { name: "FastAPI", level: "Buono" }
         - { name: "HTML", level: "Buono" }
         - { name: "CSS", level: "Base" }
-    - name: "Cloud & DevOps"
+    - name: "Cloud e DevOps"
       skills:
-        - { name: "AWS", level: "Avanzato" }
         - { name: "Kubernetes", level: "Avanzato" }
         - { name: "Docker", level: "Avanzato" }
         - { name: "Helm", level: "Avanzato" }
         - { name: "Git", level: "Avanzato" }
-    - name: "Dati & Analisi"
+    - name: "Dati e analisi"
       skills:
         - { name: "Pandas", level: "Avanzato" }
         - { name: "PostgreSQL", level: "Buono" }
@@ -116,7 +117,7 @@ competenze:
         - { name: "Redis", level: "Buono" }
         - { name: "DuckDB", level: "Buono" }
         - { name: "ROOT", level: "Buono" }
-    - name: "Sistemi & Strumenti"
+    - name: "Sistemi e strumenti"
       skills:
         - { name: "Linux", level: "Avanzato" }
         - { name: "LaTeX", level: "Buono" }
@@ -132,15 +133,15 @@ formazione:
       detail: "102/110 — tesi «Perdite di massa in stelle AGB e loro indicatori osservativi» (relatore: Maurizio M. Busso)."
     - year: "2016"
       place: "Liceo Classico «A. Mariotti», Perugia"
-      title: "Maturità Classica"
+      title: "Maturità classica"
       detail: "96/100 — formazione umanistica e metodo logico-argomentativo."
-  masterclasses_label: "Masterclass & formazione"
+  masterclasses_label: "Formazione aggiuntiva"
   masterclasses:
     - "SOSC 23 — Fifth International School on Open Science Cloud (Perugia, 2023)"
 
 altro:
   eyebrow: "05 — Oltre il lavoro"
-  title: "Progetti, talk & community"
+  title: "Idee e persone, oltre il codice"
   cards:
     - kind: "Progetto educativo"
       title: "DesTEENazione"
@@ -152,8 +153,8 @@ altro:
     - kind: "Conferenza"
       title: "PyCon Italia 2026"
       desc: >-
-        Partecipazione alla principale conferenza italiana su Python: ecosistema,
-        best practice e community.
+        Partecipazione alla conferenza PyCon Italia: un'occasione di aggiornamento
+        e confronto con la comunità Python.
     - kind: "Sport"
       title: "Allenatore di calcio a 5"
       desc: >-
@@ -172,17 +173,18 @@ altro:
 
 contatti:
   eyebrow: "06 — Contatti"
-  title: "Parliamo di un progetto"
+  title: "Da quale idea partiamo?"
   body: >-
-    Cloud, infrastrutture, MLOps, data pipeline o consulenza R&D.
-    Scrivimi due righe: rispondo a tutte le mail.
+    Un'infrastruttura da ripensare, dati da esplorare, un'idea da mettere alla prova.
+    Raccontami cosa hai in mente: possiamo capire insieme da dove cominciare.
 
 cv:
   profile_summary: >-
-    Fisico di formazione e ingegnere cloud/ML. Porto il metodo sperimentale nel
-    ciclo di vita di piattaforme cloud e sistemi di machine learning: misuro, isolo
-    le variabili, itero. Specializzato in infrastrutture su AWS/Kubernetes, pipeline
-    di dati e analisi avanzata.
+    Fisico di formazione e Cloud & ML Engineer. Unisco creatività e metodo
+    sperimentale nella progettazione di infrastrutture cloud, pipeline di dati
+    e sistemi di machine learning. Mi occupo di Kubernetes, analisi dei dati
+    e valutazione di agenti basati su LLM, dall'esplorazione delle idee alla
+    verifica del loro funzionamento.
   languages_label: "Lingue"
   languages: "Italiano (madrelingua) · Inglese (B1)"
   updated: "giugno 2026"

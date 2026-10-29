@@ -156,11 +156,12 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.12; }
 
 /* ---------- Decorative background ---------- */
 .bg-deco {
-  position: absolute; top: 60px; right: 0; width: min(62vw, 820px);
+  position: absolute; top: 0; right: 0; width: 577px;
   pointer-events: none; user-select: none; z-index: 0;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%, #000 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 42%, #000 100%);
 }
+.bg-deco img { width: 100%; height: auto; display: block; }
 @media (prefers-color-scheme: dark) { .bg-deco { opacity: 0.32; } }
 @media (max-width: 720px) { .bg-deco { display: none !important; } }
 

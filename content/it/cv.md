@@ -1,6 +1,6 @@
 ---
 title: "CV"
-description: "Curriculum Vitae di Daniele Nucciarelli — fisico, cloud & ML engineer. Versione stampabile in PDF."
+description: "Curriculum di Daniele Nucciarelli, fisico e Cloud & ML Engineer: esperienze, competenze e formazione. Consultabile online e salvabile in PDF."
 layout: cv
 outputs: ["html", "europass"]
 bare: true

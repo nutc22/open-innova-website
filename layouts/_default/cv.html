@@ -23,7 +23,7 @@
       </div>
       <div class="meta">
         <div>{{ $p.email }}</div>
-        <div>{{ $p.location }} · Remote</div>
+        <div>{{ $p.location }} · {{ if $isIt }}Da remoto{{ else }}Remote{{ end }}</div>
         {{- with $p.github }}<div>{{ replaceRE "^https?://" "" . }}</div>{{ end }}
         {{- with $p.linkedin }}<div>{{ replaceRE "^https?://" "" . }}</div>{{ end }}
       </div>

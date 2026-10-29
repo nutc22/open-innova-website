@@ -12,7 +12,7 @@
   {{- if $isIt }}
   <p class="eyebrow">Trasparenza</p>
   <h1>Come è fatto questo sito</h1>
-  <p class="lead">Nessun cookie. Nessun tracciamento. Nessuna richiesta di consenso, perché non c'è nulla da consentire. Questa pagina racconta com'è costruito il sito e cosa ho scelto di <em>non</em> usare.</p>
+  <p class="lead">Anche un sito personale racconta un modo di lavorare. Qui ho scelto pagine statiche, font di sistema e poche dipendenze. Nessun cookie e nessuno strumento di analytics o tracciamento.</p>
 
   <div class="stats">
     <div class="stat"><p class="stat__value">0</p><p class="stat__label">cookie e tracker</p></div>
@@ -23,20 +23,20 @@
   <section>
     <h2>Com'è fatto</h2>
     <ul class="tlist">
-      <li data-mark="›">Sito completamente statico: nessun database, nessuna logica a runtime. Le pagine sono generate in fase di build con Hugo.</li>
-      <li data-mark="›">Solo HTML e CSS, con una manciata di JavaScript vanilla. Nessun framework.</li>
+      <li data-mark="›">Le pagine sono generate con Hugo e servite come file statici, senza database né elaborazione applicativa lato server.</li>
+      <li data-mark="›">HTML, CSS e un po' di JavaScript per le interazioni, senza framework.</li>
       <li data-mark="›">Font di sistema del dispositivo: niente font scaricati da CDN esterne.</li>
-      <li data-mark="›">Hosting statico con cache via CDN del provider. Codice e template versionati su Git.</li>
+      <li data-mark="›">Hosting statico con distribuzione dei contenuti tramite la CDN del fornitore. Codice e template versionati con Git.</li>
     </ul>
   </section>
 
   <section>
     <h2>Cosa ho scelto di non fare</h2>
     <ul class="tlist">
-      <li data-mark="×">Niente cookie, di nessun tipo: né tecnici di tracciamento, né di profilazione.</li>
-      <li data-mark="×">Niente analytics: non so chi sei, da dove arrivi o cosa apri, e non voglio saperlo.</li>
-      <li data-mark="×">Niente popup di consenso: non servono se non si raccolgono dati.</li>
-      <li data-mark="×">Niente font da Google, niente embed di terze parti, niente chatbot.</li>
+      <li data-mark="×">Il sito non imposta cookie.</li>
+      <li data-mark="×">Non integra strumenti di analytics né tracker di terze parti.</li>
+      <li data-mark="×">Non mostra banner per il consenso ai cookie.</li>
+      <li data-mark="×">Non carica font da Google, contenuti incorporati di terze parti o chatbot.</li>
       <li data-mark="×">Niente localStorage: anche il tema scuro segue l'impostazione del tuo sistema operativo.</li>
     </ul>
   </section>
@@ -44,14 +44,14 @@
   <section>
     <h2>Perché lo faccio così</h2>
     <ul class="tlist">
-      <li data-mark="›">C'è un legame diretto tra essenzialità tecnica, rispetto della privacy e basso impatto ambientale: lo stesso obiettivo visto da angolazioni diverse.</li>
+      <li data-mark="›">Meno risorse da scaricare e meno dipendenze da mantenere: l'essenzialità è una scelta concreta, anche in un progetto piccolo come questo.</li>
       <li data-mark="›">È lo stesso principio che applico quando progetto sistemi: costruire quello che serve, e niente di più.</li>
     </ul>
   </section>
 
   <div class="callout">
-    <p style="font-weight:600">Hai notato qualcosa che potrei togliere ancora?</p>
-    <p style="color:var(--text-muted)">Scrivimi a <a href="mailto:{{ hugo.Data.profile.email }}">{{ hugo.Data.profile.email }}</a>. Le critiche sull'essenzialità sono benvenute.</p>
+    <p style="font-weight:600">Hai un'idea per migliorarlo?</p>
+    <p style="color:var(--text-muted)">Scrivimi a <a href="mailto:{{ hugo.Data.profile.email }}">{{ hugo.Data.profile.email }}</a>. Mi interessano anche i dettagli che mi sono sfuggiti.</p>
   </div>
   {{- else }}
   <p class="eyebrow">Transparency</p>

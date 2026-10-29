@@ -25,7 +25,7 @@
       <div class="hero-cta">
         <a href="#contatti" class="btn btn-primary">{{ .cta_primary }}</a>
         <a href="{{ $cvURL }}" class="btn btn-secondary">{{ .cta_secondary }}</a>
-        <span class="loc">{{ hugo.Data.profile.location }} · Remote</span>
+        <span class="loc">{{ hugo.Data.profile.location }} · {{ if $isIt }}Da remoto{{ else }}Remote{{ end }}</span>
       </div>
     </div>
   </section>
