@@ -20,7 +20,8 @@
     update();
     topBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     });
   }
 

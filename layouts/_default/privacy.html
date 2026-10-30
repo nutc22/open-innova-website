@@ -2,11 +2,11 @@
 {{- $isIt := eq .Language.Lang "it" -}}
 {{- $home := cond $isIt .Site.BaseURL (printf "%sen/" .Site.BaseURL) -}}
 
-<div class="subnav">
+<header class="subnav">
   <div class="subnav__inner">
     <a class="subnav__back" href="{{ $home }}">← {{ hugo.Data.profile.name }}</a>
   </div>
-</div>
+</header>
 
 <main id="main-content" class="prose legal">
   <p class="eyebrow">Privacy</p>

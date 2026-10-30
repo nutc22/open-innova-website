@@ -75,3 +75,7 @@ aws_credentials
 # === DEVELOPMENT ===
 .env.development.local
 .env.test.local
+
+# Python dev virtualenv (accessibility tooling) and bytecode
+.venv/
+__pycache__/

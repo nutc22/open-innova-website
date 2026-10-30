@@ -4,7 +4,7 @@
 {{- $isIt := eq .Language.Lang "it" -}}
 {{- $home := cond $isIt .Site.BaseURL (printf "%sen/" .Site.BaseURL) -}}
 
-<div class="cv-toolbar no-print">
+<header class="cv-toolbar no-print">
   <a href="{{ $home }}">← {{ if $isIt }}Sito{{ else }}Site{{ end }}</a>
   <span class="cv-toolbar__title">CV — {{ $p.name }}</span>
   <span class="cv-toolbar__hint">{{ if $isIt }}Anteprima formato A4{{ else }}A4 preview{{ end }}</span>
@@ -13,7 +13,7 @@
   {{- end }}
   <a href="{{ cond $isIt (printf "%sprivacy/" .Site.BaseURL) (printf "%sen/privacy/" .Site.BaseURL) }}">Privacy</a>
   <button type="button" class="cv-print-btn" data-print>{{ if $isIt }}Stampa / Salva PDF{{ else }}Print / Save PDF{{ end }}</button>
-</div>
+</header>
 
 <main id="main-content" class="cv-wrap">
   <div class="cv-sheet">

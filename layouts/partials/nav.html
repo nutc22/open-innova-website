@@ -1,5 +1,5 @@
 {{- $cvURL := cond (eq .Language.Lang "it") (printf "%scv/" .Site.BaseURL) (printf "%sen/cv/" .Site.BaseURL) -}}
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" aria-label="{{ if eq .Language.Lang "it" }}Navigazione principale{{ else }}Main navigation{{ end }}">
   <div class="container navbar-container">
     <a href="{{ if eq .Language.Lang "it" }}{{ .Site.BaseURL }}{{ else }}{{ .Site.BaseURL }}en/{{ end }}" class="navbar-logo" aria-label="{{ .Site.Title }}">
       <span class="mark" aria-hidden="true">DN</span>
@@ -8,16 +8,16 @@
 
     <span class="navbar-spacer"></span>
 
-    <ul class="navbar-menu" role="menubar">
+    <ul class="navbar-menu">
       {{- range .Site.Menus.main }}
-      <li role="none"><a href="{{ .URL }}" class="navbar-link" role="menuitem">{{ .Name }}</a></li>
+      <li><a href="{{ .URL }}" class="navbar-link">{{ .Name }}</a></li>
       {{- end }}
     </ul>
 
     <a href="{{ $cvURL }}" class="btn-cv">CV ↗</a>
 
     {{- if .IsTranslated }}
-    <div class="lang-switcher desktop" role="group" aria-label="Language">
+    <div class="lang-switcher desktop" role="group" aria-label="{{ if eq .Language.Lang "it" }}Lingua{{ else }}Language{{ end }}">
       {{- range .AllTranslations }}
       {{- $cur := eq .Language.Lang $.Page.Language.Lang }}
       <a href="{{ .Permalink }}" class="lang-link{{ if $cur }} active{{ end }}"{{ if $cur }} aria-current="true"{{ end }} lang="{{ .Language.Lang }}">{{ .Language.Lang | upper }}</a>
@@ -41,17 +41,17 @@
         </svg>
       </button>
     </div>
-    <ul class="nav-menu__list" role="menu">
+    <ul class="nav-menu__list">
       {{- range .Site.Menus.main }}
-      <li role="none"><a href="{{ .URL }}" class="nav-menu__link" data-close-nav-menu>{{ .Name }}</a></li>
+      <li><a href="{{ .URL }}" class="nav-menu__link" data-close-nav-menu>{{ .Name }}</a></li>
       {{- end }}
-      <li role="none"><a href="{{ $cvURL }}" class="nav-menu__link" data-close-nav-menu>CV ↗</a></li>
+      <li><a href="{{ $cvURL }}" class="nav-menu__link" data-close-nav-menu>CV ↗</a></li>
     </ul>
     {{- if .IsTranslated }}
-    <div class="nav-menu__lang" role="group" aria-label="Language">
+    <div class="nav-menu__lang" role="group" aria-label="{{ if eq .Language.Lang "it" }}Lingua{{ else }}Language{{ end }}">
       {{- range .AllTranslations }}
       {{- $cur := eq .Language.Lang $.Page.Language.Lang }}
-      <a href="{{ .Permalink }}" class="nav-menu__lang-link{{ if $cur }} active{{ end }}" lang="{{ .Language.Lang }}">{{ .Language.Lang | upper }}</a>
+      <a href="{{ .Permalink }}" class="nav-menu__lang-link{{ if $cur }} active{{ end }}"{{ if $cur }} aria-current="true"{{ end }} lang="{{ .Language.Lang }}">{{ .Language.Lang | upper }}</a>
       {{- end }}
     </div>
     {{- end }}

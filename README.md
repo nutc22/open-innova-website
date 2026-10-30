@@ -33,7 +33,19 @@ hugo --minify
 - `layouts/` — templates: single-page home, `/cv` (A4 printable → PDF), `/trasparenza`
 - `layouts/_default/cv.europass.xml` — Europass XML export, rendered from the same data
 - `assets/css/style.css` — hand-written CSS, design tokens, light/dark via OS preference
-- `scripts/deploy.sh` — build + S3 sync + CloudFront invalidation
+- `scripts/deploy.sh` — build + accessibility gate + S3 sync + CloudFront invalidation
+- `scripts/a11y_check.py` — WCAG 2.2 AA checks on the built site (same script as upstream)
+
+## Accessibility
+
+Target: WCAG 2.2 level AA, both languages, light and dark mode. `scripts/deploy.sh` runs
+`scripts/a11y_check.py` on the fresh build (axe-core rules, keyboard focus, dialogs, 320px
+reflow) and stops the deploy if anything fails. It needs Python 3 and Google Chrome; the
+first run creates `.venv` from `requirements-dev.txt`. To run it by hand:
+
+```bash
+hugo && .venv/bin/python scripts/a11y_check.py
+```
 
 ## CV
 

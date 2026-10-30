@@ -1,38 +1,36 @@
-# llms.txt — Information for AI Agents
-# Describes daniele.nucciarelli.it for AI crawlers.
+# Daniele Nucciarelli
 
-# Website: Daniele Nucciarelli — Portfolio & CV
-# URL: https://daniele.nucciarelli.it
+> Personal portfolio and CV of Daniele Nucciarelli: physicist by training, cloud & ML engineer. Based in Perugia, Italy; works remotely.
 
-> Personal portfolio and CV of Daniele Nucciarelli: physicist by training,
-> cloud & ML engineer. Based in Perugia, Italy; works remotely.
-
-## Who
-
-Daniele Nucciarelli designs and runs cloud infrastructure (AWS, Kubernetes,
-Docker, Helm) and works on data analysis, anomaly detection and evaluation /
-red teaming of LLM-based agents.
+Daniele Nucciarelli designs and runs cloud infrastructure (AWS, Kubernetes, Docker, Helm) and works on data analysis, anomaly detection and evaluation / red teaming of LLM-based agents.
 
 Current roles:
-- Founding partner, Open Innova S.r.l. (software, consulting, coaching) — openinnova.it
-- Data Scientist, Red Lynx Robotics S.r.l. (data analysis, anomaly detection, agent evaluation)
-- Founder, Gestiscu (multi-tenant Django SaaS) — gestiscu.it, infrastructure & security
+
+- Founding partner, Open Innova S.r.l. (software, consulting, coaching), since 2026
+- Data Scientist, Red Lynx Robotics S.r.l. (large-scale data analysis, network anomaly detection, AI agent evaluation and red teaming), since 2025
+- Co-founder and Head of Infrastructure, Networking & Security, GestiSCU (multi-tenant Django SaaS), since 2024
+- E-learning Platform Administrator, scuacademy, since 2023
 
 Education: BSc in Physical Sciences and Technologies (L-30), University of Perugia.
 
+Contact: info@daniele.nucciarelli.it
+
+The site is a fully static Hugo site, bilingual (Italian at the root, English under /en/), with no cookies, no analytics and no external CDN requests.
+
 ## Pages
 
-- / — single-page portfolio (Italian; /en/ for English)
-- /cv/ — printable A4 CV (PDF via browser print); Europass XML at /cv/cv-europass.xml
-- /trasparenza/ (/en/transparency/) — how the site is built: no cookies, no tracking
+- [Portfolio (English)](https://daniele.nucciarelli.it/en/): single-page portfolio: profile, experience, skills, education and contact. Italian: https://daniele.nucciarelli.it/
+- [CV (English)](https://daniele.nucciarelli.it/en/cv/): printable A4 CV (save as PDF from the browser). Italian: https://daniele.nucciarelli.it/cv/
+- [Europass CV (XML)](https://daniele.nucciarelli.it/en/cv/cv-europass.xml): the same CV as Europass-compatible XML. Italian: https://daniele.nucciarelli.it/cv/cv-europass.xml
 
-## Contact
+## Elsewhere
 
-- Email: info@daniele.nucciarelli.it
-- GitHub: https://github.com/nutc22
-- LinkedIn: https://www.linkedin.com/in/daniele-nucciarelli-663695412
+- [GitHub](https://github.com/nutc22): code and projects
+- [LinkedIn](https://www.linkedin.com/in/daniele-nucciarelli-663695412): professional profile
+- [Open Innova](https://openinnova.it/en/): the company Daniele co-founded
 
-## Technical
+## Optional
 
-Fully static site generated with Hugo. No cookies, no analytics, no external
-CDN requests. Content is bilingual (it/en).
+- [Transparency](https://daniele.nucciarelli.it/en/transparency/): how the site is built and what it does not use. Italian: https://daniele.nucciarelli.it/trasparenza/
+- [Privacy notice](https://daniele.nucciarelli.it/en/privacy/): data processed when visiting the site. Italian: https://daniele.nucciarelli.it/privacy/
+- [Privacy notice for clients](https://daniele.nucciarelli.it/en/privacy/clients/): data processed for professional engagements. Italian: https://daniele.nucciarelli.it/privacy/clienti/
